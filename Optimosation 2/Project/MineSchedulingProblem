@@ -1,0 +1,1262 @@
+\* MineSchedulingProblem *\
+Maximize
+OBJ: 36 IsOver_Job10_ + 74 IsOver_Job11_ + 48 IsOver_Job12_ + 74 IsOver_Job13_
+ + 49 IsOver_Job14_ + 34 IsOver_Job15_ + 25 IsOver_Job16_ + 44 IsOver_Job17_
+ + 68 IsOver_Job18_ + 61 IsOver_Job19_ + 58 IsOver_Job1_ + 43 IsOver_Job2_
+ + 82 IsOver_Job3_ + 40 IsOver_Job4_ + 28 IsOver_Job5_ + 69 IsOver_Job6_
+ + 34 IsOver_Job7_ + 35 IsOver_Job8_ + 49 IsOver_Job9_
+Subject To
+IsFirstOnMachine_BigDragline_: isFirst_BigDragline__Job10_
+ + isFirst_BigDragline__Job14_ + isFirst_BigDragline__Job15_
+ + isFirst_BigDragline__Job16_ + isFirst_BigDragline__Job17_
+ + isFirst_BigDragline__Job18_ + isFirst_BigDragline__Job19_
+ + isFirst_BigDragline__Job4_ + isFirst_BigDragline__Job5_
+ + isFirst_BigDragline__Job6_ + isFirst_BigDragline__Job8_
+ + isFirst_BigDragline__Job9_ <= 1
+IsFirstOnMachine_Bull_: isFirst_Bull__Job11_ + isFirst_Bull__Job12_
+ + isFirst_Bull__Job13_ + isFirst_Bull__Job1_ + isFirst_Bull__Job2_
+ + isFirst_Bull__Job3_ + isFirst_Bull__Job7_ <= 1
+IsFirstOnMachine_SmallDragline_: isFirst_SmallDragline__Job13_
+ + isFirst_SmallDragline__Job14_ + isFirst_SmallDragline__Job15_
+ + isFirst_SmallDragline__Job17_ + isFirst_SmallDragline__Job18_
+ + isFirst_SmallDragline__Job3_ + isFirst_SmallDragline__Job4_
+ + isFirst_SmallDragline__Job5_ + isFirst_SmallDragline__Job7_
+ + isFirst_SmallDragline__Job8_ + isFirst_SmallDragline__Job9_ <= 1
+_C1: Allocation_Job1__Bull_ <= 1
+_C10: Allocation_Job10__BigDragline_ <= 1
+_C100: - 100000 IsSuccessor_BigDragline__Job4__Job8_ - Start_Job4_
+ + Start_Job8_ >= -99957.1428571
+_C101: - 100000 IsSuccessor_SmallDragline__Job4__Job9_ - Start_Job4_
+ + Start_Job9_ >= -99945.0909091
+_C102: - 100000 IsSuccessor_BigDragline__Job4__Job9_ - Start_Job4_
+ + Start_Job9_ >= -99953.1428571
+_C103: - 100000 IsSuccessor_Bull__Job1__Job11_ + Start_Job11_ - Start_Job1_
+ >= -99978.8
+_C104: - 100000 IsSuccessor_Bull__Job7__Job12_ + Start_Job12_ - Start_Job7_
+ >= -99961.2
+_C105: - 100000 IsSuccessor_Bull__Job3__Job12_ + Start_Job12_ - Start_Job3_
+ >= -99942
+_C106: - 100000 IsSuccessor_SmallDragline__Job3__Job13_ + Start_Job13_
+ - Start_Job3_ >= -99955
+_C107: - 100000 IsSuccessor_SmallDragline__Job3__Job14_ + Start_Job14_
+ - Start_Job3_ >= -99951
+_C108: - 100000 IsSuccessor_SmallDragline__Job3__Job15_ + Start_Job15_
+ - Start_Job3_ >= -99953
+_C109: - 100000 IsSuccessor_SmallDragline__Job3__Job17_ + Start_Job17_
+ - Start_Job3_ >= -99953
+_C11: Allocation_Job11__Bull_ <= 1
+_C110: - 100000 IsSuccessor_SmallDragline__Job3__Job18_ + Start_Job18_
+ - Start_Job3_ >= -99955
+_C111: - 100000 IsSuccessor_SmallDragline__Job3__Job4_ - Start_Job3_
+ + Start_Job4_ >= -99947
+_C112: - 100000 IsSuccessor_SmallDragline__Job3__Job5_ - Start_Job3_
+ + Start_Job5_ >= -99947
+_C113: - 100000 IsSuccessor_Bull__Job2__Job12_ + Start_Job12_ - Start_Job2_
+ >= -99971.7333333
+_C114: - 100000 IsSuccessor_SmallDragline__Job3__Job7_ - Start_Job3_
+ + Start_Job7_ >= -99947
+_C115: - 100000 IsSuccessor_SmallDragline__Job3__Job8_ - Start_Job3_
+ + Start_Job8_ >= -99947
+_C116: - 100000 IsSuccessor_SmallDragline__Job3__Job9_ - Start_Job3_
+ + Start_Job9_ >= -99947
+_C117: - 100000 IsSuccessor_Bull__Job11__Job12_ - Start_Job11_ + Start_Job12_
+ >= -99965.9047619
+_C118: - 100000 IsSuccessor_Bull__Job1__Job12_ + Start_Job12_ - Start_Job1_
+ >= -99978.8
+_C119: - 100000 IsSuccessor_Bull__Job7__Job13_ + Start_Job13_ - Start_Job7_
+ >= -99961.2
+_C12: Allocation_Job12__Bull_ <= 1
+_C120: - 100000 IsSuccessor_Bull__Job3__Job13_ + Start_Job13_ - Start_Job3_
+ >= -99944
+_C121: - 100000 IsSuccessor_Bull__Job2__Job13_ + Start_Job13_ - Start_Job2_
+ >= -99969.7333333
+_C122: - 100000 IsSuccessor_BigDragline__Job18__Job19_ - Start_Job18_
+ + Start_Job19_ >= -99950.4615385
+_C123: - 100000 IsSuccessor_SmallDragline__Job17__Job18_ - Start_Job17_
+ + Start_Job18_ >= -99944.6666667
+_C124: - 100000 IsSuccessor_BigDragline__Job17__Job18_ - Start_Job17_
+ + Start_Job18_ >= -99954.1333333
+_C125: - 100000 IsSuccessor_BigDragline__Job17__Job19_ - Start_Job17_
+ + Start_Job19_ >= -99952.1333333
+_C126: - 100000 IsSuccessor_BigDragline__Job16__Job17_ - Start_Job16_
+ + Start_Job17_ >= -99969.4545455
+_C127: - 100000 IsSuccessor_BigDragline__Job16__Job18_ - Start_Job16_
+ + Start_Job18_ >= -99969.4545455
+_C128: - 100000 IsSuccessor_BigDragline__Job16__Job19_ - Start_Job16_
+ + Start_Job19_ >= -99971.4545455
+_C129: - 100000 IsSuccessor_BigDragline__Job15__Job16_ - Start_Job15_
+ + Start_Job16_ >= -99976
+_C13: Allocation_Job13__Bull_ + Allocation_Job13__SmallDragline_ <= 1
+_C130: - 100000 IsSuccessor_SmallDragline__Job15__Job17_ - Start_Job15_
+ + Start_Job17_ >= -99973.0909091
+_C131: - 100000 IsSuccessor_BigDragline__Job15__Job17_ - Start_Job15_
+ + Start_Job17_ >= -99978
+_C132: - 100000 IsSuccessor_SmallDragline__Job15__Job18_ - Start_Job15_
+ + Start_Job18_ >= -99973.0909091
+_C133: - 100000 IsSuccessor_BigDragline__Job15__Job18_ - Start_Job15_
+ + Start_Job18_ >= -99976
+_C134: - 100000 IsSuccessor_BigDragline__Job15__Job19_ - Start_Job15_
+ + Start_Job19_ >= -99974
+_C135: - 100000 IsSuccessor_SmallDragline__Job14__Job15_ - Start_Job14_
+ + Start_Job15_ >= -99963.6666667
+_C136: - 100000 IsSuccessor_BigDragline__Job14__Job15_ - Start_Job14_
+ + Start_Job15_ >= -99970.9333333
+_C137: - 100000 IsSuccessor_BigDragline__Job14__Job16_ - Start_Job14_
+ + Start_Job16_ >= -99972.9333333
+_C138: - 100000 IsSuccessor_SmallDragline__Job14__Job17_ - Start_Job14_
+ + Start_Job17_ >= -99967.6666667
+_C139: - 100000 IsSuccessor_BigDragline__Job14__Job17_ - Start_Job14_
+ + Start_Job17_ >= -99968.9333333
+_C14: Allocation_Job14__BigDragline_ + Allocation_Job14__SmallDragline_ <= 1
+_C140: - 100000 IsSuccessor_SmallDragline__Job14__Job18_ - Start_Job14_
+ + Start_Job18_ >= -99965.6666667
+_C141: - 100000 IsSuccessor_BigDragline__Job14__Job18_ - Start_Job14_
+ + Start_Job18_ >= -99970.9333333
+_C142: - 100000 IsSuccessor_BigDragline__Job14__Job19_ - Start_Job14_
+ + Start_Job19_ >= -99970.9333333
+_C143: - 100000 IsSuccessor_SmallDragline__Job13__Job14_ - Start_Job13_
+ + Start_Job14_ >= -99946.6153846
+_C144: - 100000 IsSuccessor_SmallDragline__Job13__Job15_ - Start_Job13_
+ + Start_Job15_ >= -99948.6153846
+_C145: - 100000 IsSuccessor_SmallDragline__Job13__Job17_ - Start_Job13_
+ + Start_Job17_ >= -99946.6153846
+_C146: - 100000 IsSuccessor_SmallDragline__Job13__Job18_ - Start_Job13_
+ + Start_Job18_ >= -99948.6153846
+_C147: - 100000 IsSuccessor_Bull__Job12__Job13_ - Start_Job12_ + Start_Job13_
+ >= -99966
+_C148: - 100000 IsSuccessor_Bull__Job11__Job13_ - Start_Job11_ + Start_Job13_
+ >= -99965.9047619
+_C149: - 100000 IsSuccessor_Bull__Job1__Job13_ + Start_Job13_ - Start_Job1_
+ >= -99982.8
+_C15: Allocation_Job15__BigDragline_ + Allocation_Job15__SmallDragline_ <= 1
+_C150: - 100000 IsSuccessor_BigDragline__Job10__Job14_ - Start_Job10_
+ + Start_Job14_ >= -99974
+_C151: - 100000 IsSuccessor_BigDragline__Job10__Job15_ - Start_Job10_
+ + Start_Job15_ >= -99974
+_C152: - 100000 IsSuccessor_BigDragline__Job10__Job16_ - Start_Job10_
+ + Start_Job16_ >= -99972
+_C153: - 100000 IsSuccessor_BigDragline__Job10__Job17_ - Start_Job10_
+ + Start_Job17_ >= -99972
+_C154: - 100000 IsSuccessor_BigDragline__Job10__Job18_ - Start_Job10_
+ + Start_Job18_ >= -99976
+_C155: - 100000 IsSuccessor_BigDragline__Job10__Job19_ - Start_Job10_
+ + Start_Job19_ >= -99974
+_C156: - 100000 IsSuccessor_Bull__Job1__Job2_ - Start_Job1_ + Start_Job2_
+ >= -99974.8
+_C157: - 100000 IsSuccessor_Bull__Job2__Job3_ - Start_Job2_ + Start_Job3_
+ >= -99963.7333333
+_C158: - 100000 IsSuccessor_Bull__Job1__Job3_ - Start_Job1_ + Start_Job3_
+ >= -99972.8
+_C159: - 100000 IsSuccessor_Bull__Job3__Job7_ - Start_Job3_ + Start_Job7_
+ >= -99940
+_C16: Allocation_Job16__BigDragline_ <= 1
+_C160: - 100000 IsSuccessor_Bull__Job2__Job7_ - Start_Job2_ + Start_Job7_
+ >= -99965.7333333
+_C161: - 100000 IsSuccessor_Bull__Job1__Job7_ - Start_Job1_ + Start_Job7_
+ >= -99972.8
+_C162: 17.2 Allocation_Job1__Bull_ + 100000 IsOver_Job1_ + Start_Job1_
+ <= 100100
+_C163: 28.2666666667 Allocation_Job2__Bull_ + 100000 IsOver_Job2_
+ + Start_Job2_ <= 100100
+_C164: 54 Allocation_Job3__Bull_ + 45 Allocation_Job3__SmallDragline_
+ + 100000 IsOver_Job3_ + Start_Job3_ <= 100100
+_C165: 36.8571428571 Allocation_Job4__BigDragline_
+ + 46.9090909091 Allocation_Job4__SmallDragline_ + 100000 IsOver_Job4_
+ + Start_Job4_ <= 100100
+_C166: 24 Allocation_Job5__BigDragline_ + 28.8 Allocation_Job5__SmallDragline_
+ + 100000 IsOver_Job5_ + Start_Job5_ <= 100100
+_C167: 54 Allocation_Job6__BigDragline_ + 100000 IsOver_Job6_ + Start_Job6_
+ <= 100100
+_C168: 34.8 Allocation_Job7__Bull_ + 29 Allocation_Job7__SmallDragline_
+ + 100000 IsOver_Job7_ + Start_Job7_ <= 100100
+_C169: 24.2857142857 Allocation_Job8__BigDragline_
+ + 30.9090909091 Allocation_Job8__SmallDragline_ + 100000 IsOver_Job8_
+ + Start_Job8_ <= 100100
+_C17: Allocation_Job17__BigDragline_ + Allocation_Job17__SmallDragline_ <= 1
+_C170: 28.6666666667 Allocation_Job9__BigDragline_
+ + 34.4 Allocation_Job9__SmallDragline_ + 100000 IsOver_Job9_ + Start_Job9_
+ <= 100100
+_C171: 24 Allocation_Job10__BigDragline_ + 100000 IsOver_Job10_ + Start_Job10_
+ <= 100100
+_C172: 26.0952380952 Allocation_Job11__Bull_ + 100000 IsOver_Job11_
+ + Start_Job11_ <= 100100
+_C173: 28 Allocation_Job12__Bull_ + 100000 IsOver_Job12_ + Start_Job12_
+ <= 100100
+_C174: 51.2727272727 Allocation_Job13__Bull_
+ + 43.3846153846 Allocation_Job13__SmallDragline_ + 100000 IsOver_Job13_
+ + Start_Job13_ <= 100100
+_C175: 21.0666666667 Allocation_Job14__BigDragline_
+ + 26.3333333333 Allocation_Job14__SmallDragline_ + 100000 IsOver_Job14_
+ + Start_Job14_ <= 100100
+_C176: 16 Allocation_Job15__BigDragline_
+ + 18.9090909091 Allocation_Job15__SmallDragline_ + 100000 IsOver_Job15_
+ + Start_Job15_ <= 100100
+_C177: 22.5454545455 Allocation_Job16__BigDragline_ + 100000 IsOver_Job16_
+ + Start_Job16_ <= 100100
+_C178: 37.8666666667 Allocation_Job17__BigDragline_
+ + 47.3333333333 Allocation_Job17__SmallDragline_ + 100000 IsOver_Job17_
+ + Start_Job17_ <= 100100
+_C179: 41.5384615385 Allocation_Job18__BigDragline_
+ + 49.0909090909 Allocation_Job18__SmallDragline_ + 100000 IsOver_Job18_
+ + Start_Job18_ <= 100100
+_C18: Allocation_Job18__BigDragline_ + Allocation_Job18__SmallDragline_ <= 1
+_C180: 46.9090909091 Allocation_Job19__BigDragline_ + 100000 IsOver_Job19_
+ + Start_Job19_ <= 100100
+_C181: - Allocation_Job1__Bull_ + IsOver_Job1_ <= 0
+_C182: - Allocation_Job2__Bull_ + IsOver_Job2_ <= 0
+_C183: - Allocation_Job3__Bull_ - Allocation_Job3__SmallDragline_
+ + IsOver_Job3_ <= 0
+_C184: - Allocation_Job4__BigDragline_ - Allocation_Job4__SmallDragline_
+ + IsOver_Job4_ <= 0
+_C185: - Allocation_Job5__BigDragline_ - Allocation_Job5__SmallDragline_
+ + IsOver_Job5_ <= 0
+_C186: - Allocation_Job6__BigDragline_ + IsOver_Job6_ <= 0
+_C187: - Allocation_Job7__Bull_ - Allocation_Job7__SmallDragline_
+ + IsOver_Job7_ <= 0
+_C188: - Allocation_Job8__BigDragline_ - Allocation_Job8__SmallDragline_
+ + IsOver_Job8_ <= 0
+_C189: - Allocation_Job9__BigDragline_ - Allocation_Job9__SmallDragline_
+ + IsOver_Job9_ <= 0
+_C19: Allocation_Job19__BigDragline_ <= 1
+_C190: - Allocation_Job10__BigDragline_ + IsOver_Job10_ <= 0
+_C191: - Allocation_Job11__Bull_ + IsOver_Job11_ <= 0
+_C192: - Allocation_Job12__Bull_ + IsOver_Job12_ <= 0
+_C193: - Allocation_Job13__Bull_ - Allocation_Job13__SmallDragline_
+ + IsOver_Job13_ <= 0
+_C194: - Allocation_Job14__BigDragline_ - Allocation_Job14__SmallDragline_
+ + IsOver_Job14_ <= 0
+_C195: - Allocation_Job15__BigDragline_ - Allocation_Job15__SmallDragline_
+ + IsOver_Job15_ <= 0
+_C196: - Allocation_Job16__BigDragline_ + IsOver_Job16_ <= 0
+_C197: - Allocation_Job17__BigDragline_ - Allocation_Job17__SmallDragline_
+ + IsOver_Job17_ <= 0
+_C198: - Allocation_Job18__BigDragline_ - Allocation_Job18__SmallDragline_
+ + IsOver_Job18_ <= 0
+_C199: - Allocation_Job19__BigDragline_ + IsOver_Job19_ <= 0
+_C2: Allocation_Job2__Bull_ <= 1
+_C20: - 100000 IsSuccessor_BigDragline__Job9__Job10_ + Start_Job10_
+ - Start_Job9_ >= -99963.3333333
+_C200: Allocation_Job1__Bull_ - isFirst_Bull__Job1_ <= 0
+_C201: Allocation_Job2__Bull_ - IsSuccessor_Bull__Job1__Job2_
+ - isFirst_Bull__Job2_ <= 0
+_C202: Allocation_Job3__Bull_ - IsSuccessor_Bull__Job1__Job3_
+ - IsSuccessor_Bull__Job2__Job3_ - isFirst_Bull__Job3_ <= 0
+_C203: Allocation_Job3__SmallDragline_ - isFirst_SmallDragline__Job3_ <= 0
+_C204: Allocation_Job4__SmallDragline_
+ - IsSuccessor_SmallDragline__Job3__Job4_ - isFirst_SmallDragline__Job4_ <= 0
+_C205: Allocation_Job4__BigDragline_ - isFirst_BigDragline__Job4_ <= 0
+_C206: Allocation_Job5__SmallDragline_
+ - IsSuccessor_SmallDragline__Job3__Job5_
+ - IsSuccessor_SmallDragline__Job4__Job5_ - isFirst_SmallDragline__Job5_ <= 0
+_C207: Allocation_Job5__BigDragline_ - IsSuccessor_BigDragline__Job4__Job5_
+ - isFirst_BigDragline__Job5_ <= 0
+_C208: Allocation_Job6__BigDragline_ - IsSuccessor_BigDragline__Job4__Job6_
+ - IsSuccessor_BigDragline__Job5__Job6_ - isFirst_BigDragline__Job6_ <= 0
+_C209: Allocation_Job7__Bull_ - IsSuccessor_Bull__Job1__Job7_
+ - IsSuccessor_Bull__Job2__Job7_ - IsSuccessor_Bull__Job3__Job7_
+ - isFirst_Bull__Job7_ <= 0
+_C21: - 100000 IsSuccessor_SmallDragline__Job9__Job13_ + Start_Job13_
+ - Start_Job9_ >= -99961.6
+_C210: Allocation_Job7__SmallDragline_
+ - IsSuccessor_SmallDragline__Job3__Job7_
+ - IsSuccessor_SmallDragline__Job4__Job7_
+ - IsSuccessor_SmallDragline__Job5__Job7_ - isFirst_SmallDragline__Job7_ <= 0
+_C211: Allocation_Job8__SmallDragline_
+ - IsSuccessor_SmallDragline__Job3__Job8_
+ - IsSuccessor_SmallDragline__Job4__Job8_
+ - IsSuccessor_SmallDragline__Job5__Job8_
+ - IsSuccessor_SmallDragline__Job7__Job8_ - isFirst_SmallDragline__Job8_ <= 0
+_C212: Allocation_Job8__BigDragline_ - IsSuccessor_BigDragline__Job4__Job8_
+ - IsSuccessor_BigDragline__Job5__Job8_ - IsSuccessor_BigDragline__Job6__Job8_
+ - isFirst_BigDragline__Job8_ <= 0
+_C213: Allocation_Job9__SmallDragline_
+ - IsSuccessor_SmallDragline__Job3__Job9_
+ - IsSuccessor_SmallDragline__Job4__Job9_
+ - IsSuccessor_SmallDragline__Job5__Job9_
+ - IsSuccessor_SmallDragline__Job7__Job9_
+ - IsSuccessor_SmallDragline__Job8__Job9_ - isFirst_SmallDragline__Job9_ <= 0
+_C214: Allocation_Job9__BigDragline_ - IsSuccessor_BigDragline__Job4__Job9_
+ - IsSuccessor_BigDragline__Job5__Job9_ - IsSuccessor_BigDragline__Job6__Job9_
+ - IsSuccessor_BigDragline__Job8__Job9_ - isFirst_BigDragline__Job9_ <= 0
+_C215: Allocation_Job10__BigDragline_ - IsSuccessor_BigDragline__Job4__Job10_
+ - IsSuccessor_BigDragline__Job5__Job10_
+ - IsSuccessor_BigDragline__Job6__Job10_
+ - IsSuccessor_BigDragline__Job8__Job10_
+ - IsSuccessor_BigDragline__Job9__Job10_ - isFirst_BigDragline__Job10_ <= 0
+_C216: Allocation_Job11__Bull_ - IsSuccessor_Bull__Job1__Job11_
+ - IsSuccessor_Bull__Job2__Job11_ - IsSuccessor_Bull__Job3__Job11_
+ - IsSuccessor_Bull__Job7__Job11_ - isFirst_Bull__Job11_ <= 0
+_C217: Allocation_Job12__Bull_ - IsSuccessor_Bull__Job11__Job12_
+ - IsSuccessor_Bull__Job1__Job12_ - IsSuccessor_Bull__Job2__Job12_
+ - IsSuccessor_Bull__Job3__Job12_ - IsSuccessor_Bull__Job7__Job12_
+ - isFirst_Bull__Job12_ <= 0
+_C218: Allocation_Job13__Bull_ - IsSuccessor_Bull__Job11__Job13_
+ - IsSuccessor_Bull__Job12__Job13_ - IsSuccessor_Bull__Job1__Job13_
+ - IsSuccessor_Bull__Job2__Job13_ - IsSuccessor_Bull__Job3__Job13_
+ - IsSuccessor_Bull__Job7__Job13_ - isFirst_Bull__Job13_ <= 0
+_C219: Allocation_Job13__SmallDragline_
+ - IsSuccessor_SmallDragline__Job3__Job13_
+ - IsSuccessor_SmallDragline__Job4__Job13_
+ - IsSuccessor_SmallDragline__Job5__Job13_
+ - IsSuccessor_SmallDragline__Job7__Job13_
+ - IsSuccessor_SmallDragline__Job8__Job13_
+ - IsSuccessor_SmallDragline__Job9__Job13_ - isFirst_SmallDragline__Job13_
+ <= 0
+_C22: - 100000 IsSuccessor_SmallDragline__Job9__Job14_ + Start_Job14_
+ - Start_Job9_ >= -99963.6
+_C220: Allocation_Job14__SmallDragline_
+ - IsSuccessor_SmallDragline__Job13__Job14_
+ - IsSuccessor_SmallDragline__Job3__Job14_
+ - IsSuccessor_SmallDragline__Job4__Job14_
+ - IsSuccessor_SmallDragline__Job5__Job14_
+ - IsSuccessor_SmallDragline__Job7__Job14_
+ - IsSuccessor_SmallDragline__Job8__Job14_
+ - IsSuccessor_SmallDragline__Job9__Job14_ - isFirst_SmallDragline__Job14_
+ <= 0
+_C221: Allocation_Job14__BigDragline_ - IsSuccessor_BigDragline__Job10__Job14_
+ - IsSuccessor_BigDragline__Job4__Job14_
+ - IsSuccessor_BigDragline__Job5__Job14_
+ - IsSuccessor_BigDragline__Job6__Job14_
+ - IsSuccessor_BigDragline__Job8__Job14_
+ - IsSuccessor_BigDragline__Job9__Job14_ - isFirst_BigDragline__Job14_ <= 0
+_C222: Allocation_Job15__SmallDragline_
+ - IsSuccessor_SmallDragline__Job13__Job15_
+ - IsSuccessor_SmallDragline__Job14__Job15_
+ - IsSuccessor_SmallDragline__Job3__Job15_
+ - IsSuccessor_SmallDragline__Job4__Job15_
+ - IsSuccessor_SmallDragline__Job5__Job15_
+ - IsSuccessor_SmallDragline__Job7__Job15_
+ - IsSuccessor_SmallDragline__Job8__Job15_
+ - IsSuccessor_SmallDragline__Job9__Job15_ - isFirst_SmallDragline__Job15_
+ <= 0
+_C223: Allocation_Job15__BigDragline_ - IsSuccessor_BigDragline__Job10__Job15_
+ - IsSuccessor_BigDragline__Job14__Job15_
+ - IsSuccessor_BigDragline__Job4__Job15_
+ - IsSuccessor_BigDragline__Job5__Job15_
+ - IsSuccessor_BigDragline__Job6__Job15_
+ - IsSuccessor_BigDragline__Job8__Job15_
+ - IsSuccessor_BigDragline__Job9__Job15_ - isFirst_BigDragline__Job15_ <= 0
+_C224: Allocation_Job16__BigDragline_ - IsSuccessor_BigDragline__Job10__Job16_
+ - IsSuccessor_BigDragline__Job14__Job16_
+ - IsSuccessor_BigDragline__Job15__Job16_
+ - IsSuccessor_BigDragline__Job4__Job16_
+ - IsSuccessor_BigDragline__Job5__Job16_
+ - IsSuccessor_BigDragline__Job6__Job16_
+ - IsSuccessor_BigDragline__Job8__Job16_
+ - IsSuccessor_BigDragline__Job9__Job16_ - isFirst_BigDragline__Job16_ <= 0
+_C225: Allocation_Job17__SmallDragline_
+ - IsSuccessor_SmallDragline__Job13__Job17_
+ - IsSuccessor_SmallDragline__Job14__Job17_
+ - IsSuccessor_SmallDragline__Job15__Job17_
+ - IsSuccessor_SmallDragline__Job3__Job17_
+ - IsSuccessor_SmallDragline__Job4__Job17_
+ - IsSuccessor_SmallDragline__Job5__Job17_
+ - IsSuccessor_SmallDragline__Job7__Job17_
+ - IsSuccessor_SmallDragline__Job8__Job17_
+ - IsSuccessor_SmallDragline__Job9__Job17_ - isFirst_SmallDragline__Job17_
+ <= 0
+_C226: Allocation_Job17__BigDragline_ - IsSuccessor_BigDragline__Job10__Job17_
+ - IsSuccessor_BigDragline__Job14__Job17_
+ - IsSuccessor_BigDragline__Job15__Job17_
+ - IsSuccessor_BigDragline__Job16__Job17_
+ - IsSuccessor_BigDragline__Job4__Job17_
+ - IsSuccessor_BigDragline__Job5__Job17_
+ - IsSuccessor_BigDragline__Job6__Job17_
+ - IsSuccessor_BigDragline__Job8__Job17_
+ - IsSuccessor_BigDragline__Job9__Job17_ - isFirst_BigDragline__Job17_ <= 0
+_C227: Allocation_Job18__SmallDragline_
+ - IsSuccessor_SmallDragline__Job13__Job18_
+ - IsSuccessor_SmallDragline__Job14__Job18_
+ - IsSuccessor_SmallDragline__Job15__Job18_
+ - IsSuccessor_SmallDragline__Job17__Job18_
+ - IsSuccessor_SmallDragline__Job3__Job18_
+ - IsSuccessor_SmallDragline__Job4__Job18_
+ - IsSuccessor_SmallDragline__Job5__Job18_
+ - IsSuccessor_SmallDragline__Job7__Job18_
+ - IsSuccessor_SmallDragline__Job8__Job18_
+ - IsSuccessor_SmallDragline__Job9__Job18_ - isFirst_SmallDragline__Job18_
+ <= 0
+_C228: Allocation_Job18__BigDragline_ - IsSuccessor_BigDragline__Job10__Job18_
+ - IsSuccessor_BigDragline__Job14__Job18_
+ - IsSuccessor_BigDragline__Job15__Job18_
+ - IsSuccessor_BigDragline__Job16__Job18_
+ - IsSuccessor_BigDragline__Job17__Job18_
+ - IsSuccessor_BigDragline__Job4__Job18_
+ - IsSuccessor_BigDragline__Job5__Job18_
+ - IsSuccessor_BigDragline__Job6__Job18_
+ - IsSuccessor_BigDragline__Job8__Job18_
+ - IsSuccessor_BigDragline__Job9__Job18_ - isFirst_BigDragline__Job18_ <= 0
+_C229: Allocation_Job19__BigDragline_ - IsSuccessor_BigDragline__Job10__Job19_
+ - IsSuccessor_BigDragline__Job14__Job19_
+ - IsSuccessor_BigDragline__Job15__Job19_
+ - IsSuccessor_BigDragline__Job16__Job19_
+ - IsSuccessor_BigDragline__Job17__Job19_
+ - IsSuccessor_BigDragline__Job18__Job19_
+ - IsSuccessor_BigDragline__Job4__Job19_
+ - IsSuccessor_BigDragline__Job5__Job19_
+ - IsSuccessor_BigDragline__Job6__Job19_
+ - IsSuccessor_BigDragline__Job8__Job19_
+ - IsSuccessor_BigDragline__Job9__Job19_ - isFirst_BigDragline__Job19_ <= 0
+_C23: - 100000 IsSuccessor_BigDragline__Job9__Job14_ + Start_Job14_
+ - Start_Job9_ >= -99969.3333333
+_C230: IsSuccessor_Bull__Job1__Job11_ + IsSuccessor_Bull__Job1__Job12_
+ + IsSuccessor_Bull__Job1__Job13_ + IsSuccessor_Bull__Job1__Job2_
+ + IsSuccessor_Bull__Job1__Job3_ + IsSuccessor_Bull__Job1__Job7_ <= 1
+_C231: IsSuccessor_Bull__Job2__Job11_ + IsSuccessor_Bull__Job2__Job12_
+ + IsSuccessor_Bull__Job2__Job13_ + IsSuccessor_Bull__Job2__Job3_
+ + IsSuccessor_Bull__Job2__Job7_ <= 1
+_C232: IsSuccessor_Bull__Job3__Job11_ + IsSuccessor_Bull__Job3__Job12_
+ + IsSuccessor_Bull__Job3__Job13_ + IsSuccessor_Bull__Job3__Job7_ <= 1
+_C233: IsSuccessor_SmallDragline__Job3__Job13_
+ + IsSuccessor_SmallDragline__Job3__Job14_
+ + IsSuccessor_SmallDragline__Job3__Job15_
+ + IsSuccessor_SmallDragline__Job3__Job17_
+ + IsSuccessor_SmallDragline__Job3__Job18_
+ + IsSuccessor_SmallDragline__Job3__Job4_
+ + IsSuccessor_SmallDragline__Job3__Job5_
+ + IsSuccessor_SmallDragline__Job3__Job7_
+ + IsSuccessor_SmallDragline__Job3__Job8_
+ + IsSuccessor_SmallDragline__Job3__Job9_ <= 1
+_C234: IsSuccessor_SmallDragline__Job4__Job13_
+ + IsSuccessor_SmallDragline__Job4__Job14_
+ + IsSuccessor_SmallDragline__Job4__Job15_
+ + IsSuccessor_SmallDragline__Job4__Job17_
+ + IsSuccessor_SmallDragline__Job4__Job18_
+ + IsSuccessor_SmallDragline__Job4__Job5_
+ + IsSuccessor_SmallDragline__Job4__Job7_
+ + IsSuccessor_SmallDragline__Job4__Job8_
+ + IsSuccessor_SmallDragline__Job4__Job9_ <= 1
+_C235: IsSuccessor_BigDragline__Job4__Job10_
+ + IsSuccessor_BigDragline__Job4__Job14_
+ + IsSuccessor_BigDragline__Job4__Job15_
+ + IsSuccessor_BigDragline__Job4__Job16_
+ + IsSuccessor_BigDragline__Job4__Job17_
+ + IsSuccessor_BigDragline__Job4__Job18_
+ + IsSuccessor_BigDragline__Job4__Job19_
+ + IsSuccessor_BigDragline__Job4__Job5_ + IsSuccessor_BigDragline__Job4__Job6_
+ + IsSuccessor_BigDragline__Job4__Job8_ + IsSuccessor_BigDragline__Job4__Job9_
+ <= 1
+_C236: IsSuccessor_SmallDragline__Job5__Job13_
+ + IsSuccessor_SmallDragline__Job5__Job14_
+ + IsSuccessor_SmallDragline__Job5__Job15_
+ + IsSuccessor_SmallDragline__Job5__Job17_
+ + IsSuccessor_SmallDragline__Job5__Job18_
+ + IsSuccessor_SmallDragline__Job5__Job7_
+ + IsSuccessor_SmallDragline__Job5__Job8_
+ + IsSuccessor_SmallDragline__Job5__Job9_ <= 1
+_C237: IsSuccessor_BigDragline__Job5__Job10_
+ + IsSuccessor_BigDragline__Job5__Job14_
+ + IsSuccessor_BigDragline__Job5__Job15_
+ + IsSuccessor_BigDragline__Job5__Job16_
+ + IsSuccessor_BigDragline__Job5__Job17_
+ + IsSuccessor_BigDragline__Job5__Job18_
+ + IsSuccessor_BigDragline__Job5__Job19_
+ + IsSuccessor_BigDragline__Job5__Job6_ + IsSuccessor_BigDragline__Job5__Job8_
+ + IsSuccessor_BigDragline__Job5__Job9_ <= 1
+_C238: IsSuccessor_BigDragline__Job6__Job10_
+ + IsSuccessor_BigDragline__Job6__Job14_
+ + IsSuccessor_BigDragline__Job6__Job15_
+ + IsSuccessor_BigDragline__Job6__Job16_
+ + IsSuccessor_BigDragline__Job6__Job17_
+ + IsSuccessor_BigDragline__Job6__Job18_
+ + IsSuccessor_BigDragline__Job6__Job19_
+ + IsSuccessor_BigDragline__Job6__Job8_ + IsSuccessor_BigDragline__Job6__Job9_
+ <= 1
+_C239: IsSuccessor_Bull__Job7__Job11_ + IsSuccessor_Bull__Job7__Job12_
+ + IsSuccessor_Bull__Job7__Job13_ <= 1
+_C24: - 100000 IsSuccessor_SmallDragline__Job9__Job15_ + Start_Job15_
+ - Start_Job9_ >= -99963.6
+_C240: IsSuccessor_SmallDragline__Job7__Job13_
+ + IsSuccessor_SmallDragline__Job7__Job14_
+ + IsSuccessor_SmallDragline__Job7__Job15_
+ + IsSuccessor_SmallDragline__Job7__Job17_
+ + IsSuccessor_SmallDragline__Job7__Job18_
+ + IsSuccessor_SmallDragline__Job7__Job8_
+ + IsSuccessor_SmallDragline__Job7__Job9_ <= 1
+_C241: IsSuccessor_SmallDragline__Job8__Job13_
+ + IsSuccessor_SmallDragline__Job8__Job14_
+ + IsSuccessor_SmallDragline__Job8__Job15_
+ + IsSuccessor_SmallDragline__Job8__Job17_
+ + IsSuccessor_SmallDragline__Job8__Job18_
+ + IsSuccessor_SmallDragline__Job8__Job9_ <= 1
+_C242: IsSuccessor_BigDragline__Job8__Job10_
+ + IsSuccessor_BigDragline__Job8__Job14_
+ + IsSuccessor_BigDragline__Job8__Job15_
+ + IsSuccessor_BigDragline__Job8__Job16_
+ + IsSuccessor_BigDragline__Job8__Job17_
+ + IsSuccessor_BigDragline__Job8__Job18_
+ + IsSuccessor_BigDragline__Job8__Job19_
+ + IsSuccessor_BigDragline__Job8__Job9_ <= 1
+_C243: IsSuccessor_SmallDragline__Job9__Job13_
+ + IsSuccessor_SmallDragline__Job9__Job14_
+ + IsSuccessor_SmallDragline__Job9__Job15_
+ + IsSuccessor_SmallDragline__Job9__Job17_
+ + IsSuccessor_SmallDragline__Job9__Job18_ <= 1
+_C244: IsSuccessor_BigDragline__Job9__Job10_
+ + IsSuccessor_BigDragline__Job9__Job14_
+ + IsSuccessor_BigDragline__Job9__Job15_
+ + IsSuccessor_BigDragline__Job9__Job16_
+ + IsSuccessor_BigDragline__Job9__Job17_
+ + IsSuccessor_BigDragline__Job9__Job18_
+ + IsSuccessor_BigDragline__Job9__Job19_ <= 1
+_C245: IsSuccessor_BigDragline__Job10__Job14_
+ + IsSuccessor_BigDragline__Job10__Job15_
+ + IsSuccessor_BigDragline__Job10__Job16_
+ + IsSuccessor_BigDragline__Job10__Job17_
+ + IsSuccessor_BigDragline__Job10__Job18_
+ + IsSuccessor_BigDragline__Job10__Job19_ <= 1
+_C246: IsSuccessor_Bull__Job11__Job12_ + IsSuccessor_Bull__Job11__Job13_ <= 1
+_C247: IsSuccessor_Bull__Job12__Job13_ <= 1
+_dummy: __dummy = 0
+_C248: __dummy <= 1
+_C249: IsSuccessor_SmallDragline__Job13__Job14_
+ + IsSuccessor_SmallDragline__Job13__Job15_
+ + IsSuccessor_SmallDragline__Job13__Job17_
+ + IsSuccessor_SmallDragline__Job13__Job18_ <= 1
+_C25: - 100000 IsSuccessor_BigDragline__Job9__Job15_ + Start_Job15_
+ - Start_Job9_ >= -99971.3333333
+_C250: IsSuccessor_SmallDragline__Job14__Job15_
+ + IsSuccessor_SmallDragline__Job14__Job17_
+ + IsSuccessor_SmallDragline__Job14__Job18_ <= 1
+_C251: IsSuccessor_BigDragline__Job14__Job15_
+ + IsSuccessor_BigDragline__Job14__Job16_
+ + IsSuccessor_BigDragline__Job14__Job17_
+ + IsSuccessor_BigDragline__Job14__Job18_
+ + IsSuccessor_BigDragline__Job14__Job19_ <= 1
+_C252: IsSuccessor_SmallDragline__Job15__Job17_
+ + IsSuccessor_SmallDragline__Job15__Job18_ <= 1
+_C253: IsSuccessor_BigDragline__Job15__Job16_
+ + IsSuccessor_BigDragline__Job15__Job17_
+ + IsSuccessor_BigDragline__Job15__Job18_
+ + IsSuccessor_BigDragline__Job15__Job19_ <= 1
+_C254: IsSuccessor_BigDragline__Job16__Job17_
+ + IsSuccessor_BigDragline__Job16__Job18_
+ + IsSuccessor_BigDragline__Job16__Job19_ <= 1
+_C255: IsSuccessor_SmallDragline__Job17__Job18_ <= 1
+_C256: IsSuccessor_BigDragline__Job17__Job18_
+ + IsSuccessor_BigDragline__Job17__Job19_ <= 1
+_C257: __dummy <= 1
+_C258: IsSuccessor_BigDragline__Job18__Job19_ <= 1
+_C259: __dummy <= 1
+_C26: - 100000 IsSuccessor_BigDragline__Job9__Job16_ + Start_Job16_
+ - Start_Job9_ >= -99971.3333333
+_C260: - Allocation_Job9__BigDragline_ + IsSuccessor_BigDragline__Job9__Job10_
+ <= 0
+_C261: - Allocation_Job9__SmallDragline_
+ + IsSuccessor_SmallDragline__Job9__Job13_ <= 0
+_C262: - Allocation_Job9__SmallDragline_
+ + IsSuccessor_SmallDragline__Job9__Job14_ <= 0
+_C263: - Allocation_Job9__BigDragline_ + IsSuccessor_BigDragline__Job9__Job14_
+ <= 0
+_C264: - Allocation_Job9__SmallDragline_
+ + IsSuccessor_SmallDragline__Job9__Job15_ <= 0
+_C265: - Allocation_Job9__BigDragline_ + IsSuccessor_BigDragline__Job9__Job15_
+ <= 0
+_C266: - Allocation_Job9__BigDragline_ + IsSuccessor_BigDragline__Job9__Job16_
+ <= 0
+_C267: - Allocation_Job9__SmallDragline_
+ + IsSuccessor_SmallDragline__Job9__Job17_ <= 0
+_C268: - Allocation_Job9__BigDragline_ + IsSuccessor_BigDragline__Job9__Job17_
+ <= 0
+_C269: - Allocation_Job9__SmallDragline_
+ + IsSuccessor_SmallDragline__Job9__Job18_ <= 0
+_C27: - 100000 IsSuccessor_SmallDragline__Job9__Job17_ + Start_Job17_
+ - Start_Job9_ >= -99963.6
+_C270: - Allocation_Job9__BigDragline_ + IsSuccessor_BigDragline__Job9__Job18_
+ <= 0
+_C271: - Allocation_Job9__BigDragline_ + IsSuccessor_BigDragline__Job9__Job19_
+ <= 0
+_C272: - Allocation_Job8__BigDragline_ + IsSuccessor_BigDragline__Job8__Job10_
+ <= 0
+_C273: - Allocation_Job8__SmallDragline_
+ + IsSuccessor_SmallDragline__Job8__Job13_ <= 0
+_C274: - Allocation_Job8__SmallDragline_
+ + IsSuccessor_SmallDragline__Job8__Job14_ <= 0
+_C275: - Allocation_Job8__BigDragline_ + IsSuccessor_BigDragline__Job8__Job14_
+ <= 0
+_C276: - Allocation_Job8__SmallDragline_
+ + IsSuccessor_SmallDragline__Job8__Job15_ <= 0
+_C277: - Allocation_Job8__BigDragline_ + IsSuccessor_BigDragline__Job8__Job15_
+ <= 0
+_C278: - Allocation_Job8__BigDragline_ + IsSuccessor_BigDragline__Job8__Job16_
+ <= 0
+_C279: - Allocation_Job8__SmallDragline_
+ + IsSuccessor_SmallDragline__Job8__Job17_ <= 0
+_C28: - 100000 IsSuccessor_BigDragline__Job9__Job17_ + Start_Job17_
+ - Start_Job9_ >= -99969.3333333
+_C280: - Allocation_Job8__BigDragline_ + IsSuccessor_BigDragline__Job8__Job17_
+ <= 0
+_C281: - Allocation_Job8__SmallDragline_
+ + IsSuccessor_SmallDragline__Job8__Job18_ <= 0
+_C282: - Allocation_Job8__BigDragline_ + IsSuccessor_BigDragline__Job8__Job18_
+ <= 0
+_C283: - Allocation_Job8__BigDragline_ + IsSuccessor_BigDragline__Job8__Job19_
+ <= 0
+_C284: - Allocation_Job8__SmallDragline_
+ + IsSuccessor_SmallDragline__Job8__Job9_ <= 0
+_C285: - Allocation_Job8__BigDragline_ + IsSuccessor_BigDragline__Job8__Job9_
+ <= 0
+_C286: - Allocation_Job7__Bull_ + IsSuccessor_Bull__Job7__Job11_ <= 0
+_C287: - Allocation_Job3__Bull_ + IsSuccessor_Bull__Job3__Job11_ <= 0
+_C288: - Allocation_Job2__Bull_ + IsSuccessor_Bull__Job2__Job11_ <= 0
+_C289: - Allocation_Job7__SmallDragline_
+ + IsSuccessor_SmallDragline__Job7__Job13_ <= 0
+_C29: - 100000 IsSuccessor_SmallDragline__Job9__Job18_ + Start_Job18_
+ - Start_Job9_ >= -99963.6
+_C290: - Allocation_Job7__SmallDragline_
+ + IsSuccessor_SmallDragline__Job7__Job14_ <= 0
+_C291: - Allocation_Job7__SmallDragline_
+ + IsSuccessor_SmallDragline__Job7__Job15_ <= 0
+_C292: - Allocation_Job7__SmallDragline_
+ + IsSuccessor_SmallDragline__Job7__Job17_ <= 0
+_C293: - Allocation_Job7__SmallDragline_
+ + IsSuccessor_SmallDragline__Job7__Job18_ <= 0
+_C294: - Allocation_Job7__SmallDragline_
+ + IsSuccessor_SmallDragline__Job7__Job8_ <= 0
+_C295: - Allocation_Job7__SmallDragline_
+ + IsSuccessor_SmallDragline__Job7__Job9_ <= 0
+_C296: - Allocation_Job6__BigDragline_ + IsSuccessor_BigDragline__Job6__Job10_
+ <= 0
+_C297: - Allocation_Job6__BigDragline_ + IsSuccessor_BigDragline__Job6__Job14_
+ <= 0
+_C298: - Allocation_Job6__BigDragline_ + IsSuccessor_BigDragline__Job6__Job15_
+ <= 0
+_C299: - Allocation_Job6__BigDragline_ + IsSuccessor_BigDragline__Job6__Job16_
+ <= 0
+_C3: Allocation_Job3__Bull_ + Allocation_Job3__SmallDragline_ <= 1
+_C30: - 100000 IsSuccessor_BigDragline__Job9__Job18_ + Start_Job18_
+ - Start_Job9_ >= -99971.3333333
+_C300: - Allocation_Job6__BigDragline_ + IsSuccessor_BigDragline__Job6__Job17_
+ <= 0
+_C301: - Allocation_Job6__BigDragline_ + IsSuccessor_BigDragline__Job6__Job18_
+ <= 0
+_C302: - Allocation_Job6__BigDragline_ + IsSuccessor_BigDragline__Job6__Job19_
+ <= 0
+_C303: - Allocation_Job6__BigDragline_ + IsSuccessor_BigDragline__Job6__Job8_
+ <= 0
+_C304: - Allocation_Job6__BigDragline_ + IsSuccessor_BigDragline__Job6__Job9_
+ <= 0
+_C305: - Allocation_Job5__BigDragline_ + IsSuccessor_BigDragline__Job5__Job10_
+ <= 0
+_C306: - Allocation_Job5__SmallDragline_
+ + IsSuccessor_SmallDragline__Job5__Job13_ <= 0
+_C307: - Allocation_Job5__SmallDragline_
+ + IsSuccessor_SmallDragline__Job5__Job14_ <= 0
+_C308: - Allocation_Job5__BigDragline_ + IsSuccessor_BigDragline__Job5__Job14_
+ <= 0
+_C309: - Allocation_Job5__SmallDragline_
+ + IsSuccessor_SmallDragline__Job5__Job15_ <= 0
+_C31: - 100000 IsSuccessor_BigDragline__Job9__Job19_ + Start_Job19_
+ - Start_Job9_ >= -99969.3333333
+_C310: - Allocation_Job5__BigDragline_ + IsSuccessor_BigDragline__Job5__Job15_
+ <= 0
+_C311: - Allocation_Job5__BigDragline_ + IsSuccessor_BigDragline__Job5__Job16_
+ <= 0
+_C312: - Allocation_Job5__SmallDragline_
+ + IsSuccessor_SmallDragline__Job5__Job17_ <= 0
+_C313: - Allocation_Job5__BigDragline_ + IsSuccessor_BigDragline__Job5__Job17_
+ <= 0
+_C314: - Allocation_Job5__SmallDragline_
+ + IsSuccessor_SmallDragline__Job5__Job18_ <= 0
+_C315: - Allocation_Job5__BigDragline_ + IsSuccessor_BigDragline__Job5__Job18_
+ <= 0
+_C316: - Allocation_Job5__BigDragline_ + IsSuccessor_BigDragline__Job5__Job19_
+ <= 0
+_C317: - Allocation_Job5__BigDragline_ + IsSuccessor_BigDragline__Job5__Job6_
+ <= 0
+_C318: - Allocation_Job5__SmallDragline_
+ + IsSuccessor_SmallDragline__Job5__Job7_ <= 0
+_C319: - Allocation_Job5__SmallDragline_
+ + IsSuccessor_SmallDragline__Job5__Job8_ <= 0
+_C32: - 100000 IsSuccessor_BigDragline__Job8__Job10_ + Start_Job10_
+ - Start_Job8_ >= -99965.7142857
+_C320: - Allocation_Job5__BigDragline_ + IsSuccessor_BigDragline__Job5__Job8_
+ <= 0
+_C321: - Allocation_Job5__SmallDragline_
+ + IsSuccessor_SmallDragline__Job5__Job9_ <= 0
+_C322: - Allocation_Job5__BigDragline_ + IsSuccessor_BigDragline__Job5__Job9_
+ <= 0
+_C323: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job10_
+ <= 0
+_C324: - Allocation_Job4__SmallDragline_
+ + IsSuccessor_SmallDragline__Job4__Job13_ <= 0
+_C325: - Allocation_Job4__SmallDragline_
+ + IsSuccessor_SmallDragline__Job4__Job14_ <= 0
+_C326: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job14_
+ <= 0
+_C327: - Allocation_Job4__SmallDragline_
+ + IsSuccessor_SmallDragline__Job4__Job15_ <= 0
+_C328: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job15_
+ <= 0
+_C329: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job16_
+ <= 0
+_C33: - 100000 IsSuccessor_SmallDragline__Job8__Job13_ + Start_Job13_
+ - Start_Job8_ >= -99965.0909091
+_C330: - Allocation_Job4__SmallDragline_
+ + IsSuccessor_SmallDragline__Job4__Job17_ <= 0
+_C331: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job17_
+ <= 0
+_C332: - Allocation_Job4__SmallDragline_
+ + IsSuccessor_SmallDragline__Job4__Job18_ <= 0
+_C333: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job18_
+ <= 0
+_C334: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job19_
+ <= 0
+_C335: - Allocation_Job4__SmallDragline_
+ + IsSuccessor_SmallDragline__Job4__Job5_ <= 0
+_C336: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job5_
+ <= 0
+_C337: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job6_
+ <= 0
+_C338: - Allocation_Job4__SmallDragline_
+ + IsSuccessor_SmallDragline__Job4__Job7_ <= 0
+_C339: - Allocation_Job4__SmallDragline_
+ + IsSuccessor_SmallDragline__Job4__Job8_ <= 0
+_C34: - 100000 IsSuccessor_SmallDragline__Job8__Job14_ + Start_Job14_
+ - Start_Job8_ >= -99965.0909091
+_C340: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job8_
+ <= 0
+_C341: - Allocation_Job4__SmallDragline_
+ + IsSuccessor_SmallDragline__Job4__Job9_ <= 0
+_C342: - Allocation_Job4__BigDragline_ + IsSuccessor_BigDragline__Job4__Job9_
+ <= 0
+_C343: - Allocation_Job1__Bull_ + IsSuccessor_Bull__Job1__Job11_ <= 0
+_C344: - Allocation_Job7__Bull_ + IsSuccessor_Bull__Job7__Job12_ <= 0
+_C345: - Allocation_Job3__Bull_ + IsSuccessor_Bull__Job3__Job12_ <= 0
+_C346: - Allocation_Job3__SmallDragline_
+ + IsSuccessor_SmallDragline__Job3__Job13_ <= 0
+_C347: - Allocation_Job3__SmallDragline_
+ + IsSuccessor_SmallDragline__Job3__Job14_ <= 0
+_C348: - Allocation_Job3__SmallDragline_
+ + IsSuccessor_SmallDragline__Job3__Job15_ <= 0
+_C349: - Allocation_Job3__SmallDragline_
+ + IsSuccessor_SmallDragline__Job3__Job17_ <= 0
+_C35: - 100000 IsSuccessor_BigDragline__Job8__Job14_ + Start_Job14_
+ - Start_Job8_ >= -99971.7142857
+_C350: - Allocation_Job3__SmallDragline_
+ + IsSuccessor_SmallDragline__Job3__Job18_ <= 0
+_C351: - Allocation_Job3__SmallDragline_
+ + IsSuccessor_SmallDragline__Job3__Job4_ <= 0
+_C352: - Allocation_Job3__SmallDragline_
+ + IsSuccessor_SmallDragline__Job3__Job5_ <= 0
+_C353: - Allocation_Job2__Bull_ + IsSuccessor_Bull__Job2__Job12_ <= 0
+_C354: - Allocation_Job3__SmallDragline_
+ + IsSuccessor_SmallDragline__Job3__Job7_ <= 0
+_C355: - Allocation_Job3__SmallDragline_
+ + IsSuccessor_SmallDragline__Job3__Job8_ <= 0
+_C356: - Allocation_Job3__SmallDragline_
+ + IsSuccessor_SmallDragline__Job3__Job9_ <= 0
+_C357: - Allocation_Job11__Bull_ + IsSuccessor_Bull__Job11__Job12_ <= 0
+_C358: - Allocation_Job1__Bull_ + IsSuccessor_Bull__Job1__Job12_ <= 0
+_C359: - Allocation_Job7__Bull_ + IsSuccessor_Bull__Job7__Job13_ <= 0
+_C36: - 100000 IsSuccessor_SmallDragline__Job8__Job15_ + Start_Job15_
+ - Start_Job8_ >= -99969.0909091
+_C360: - Allocation_Job3__Bull_ + IsSuccessor_Bull__Job3__Job13_ <= 0
+_C361: - Allocation_Job2__Bull_ + IsSuccessor_Bull__Job2__Job13_ <= 0
+_C362: - Allocation_Job18__BigDragline_
+ + IsSuccessor_BigDragline__Job18__Job19_ <= 0
+_C363: - Allocation_Job17__SmallDragline_
+ + IsSuccessor_SmallDragline__Job17__Job18_ <= 0
+_C364: - Allocation_Job17__BigDragline_
+ + IsSuccessor_BigDragline__Job17__Job18_ <= 0
+_C365: - Allocation_Job17__BigDragline_
+ + IsSuccessor_BigDragline__Job17__Job19_ <= 0
+_C366: - Allocation_Job16__BigDragline_
+ + IsSuccessor_BigDragline__Job16__Job17_ <= 0
+_C367: - Allocation_Job16__BigDragline_
+ + IsSuccessor_BigDragline__Job16__Job18_ <= 0
+_C368: - Allocation_Job16__BigDragline_
+ + IsSuccessor_BigDragline__Job16__Job19_ <= 0
+_C369: - Allocation_Job15__BigDragline_
+ + IsSuccessor_BigDragline__Job15__Job16_ <= 0
+_C37: - 100000 IsSuccessor_BigDragline__Job8__Job15_ + Start_Job15_
+ - Start_Job8_ >= -99975.7142857
+_C370: - Allocation_Job15__SmallDragline_
+ + IsSuccessor_SmallDragline__Job15__Job17_ <= 0
+_C371: - Allocation_Job15__BigDragline_
+ + IsSuccessor_BigDragline__Job15__Job17_ <= 0
+_C372: - Allocation_Job15__SmallDragline_
+ + IsSuccessor_SmallDragline__Job15__Job18_ <= 0
+_C373: - Allocation_Job15__BigDragline_
+ + IsSuccessor_BigDragline__Job15__Job18_ <= 0
+_C374: - Allocation_Job15__BigDragline_
+ + IsSuccessor_BigDragline__Job15__Job19_ <= 0
+_C375: - Allocation_Job14__SmallDragline_
+ + IsSuccessor_SmallDragline__Job14__Job15_ <= 0
+_C376: - Allocation_Job14__BigDragline_
+ + IsSuccessor_BigDragline__Job14__Job15_ <= 0
+_C377: - Allocation_Job14__BigDragline_
+ + IsSuccessor_BigDragline__Job14__Job16_ <= 0
+_C378: - Allocation_Job14__SmallDragline_
+ + IsSuccessor_SmallDragline__Job14__Job17_ <= 0
+_C379: - Allocation_Job14__BigDragline_
+ + IsSuccessor_BigDragline__Job14__Job17_ <= 0
+_C38: - 100000 IsSuccessor_BigDragline__Job8__Job16_ + Start_Job16_
+ - Start_Job8_ >= -99975.7142857
+_C380: - Allocation_Job14__SmallDragline_
+ + IsSuccessor_SmallDragline__Job14__Job18_ <= 0
+_C381: - Allocation_Job14__BigDragline_
+ + IsSuccessor_BigDragline__Job14__Job18_ <= 0
+_C382: - Allocation_Job14__BigDragline_
+ + IsSuccessor_BigDragline__Job14__Job19_ <= 0
+_C383: - Allocation_Job13__SmallDragline_
+ + IsSuccessor_SmallDragline__Job13__Job14_ <= 0
+_C384: - Allocation_Job13__SmallDragline_
+ + IsSuccessor_SmallDragline__Job13__Job15_ <= 0
+_C385: - Allocation_Job13__SmallDragline_
+ + IsSuccessor_SmallDragline__Job13__Job17_ <= 0
+_C386: - Allocation_Job13__SmallDragline_
+ + IsSuccessor_SmallDragline__Job13__Job18_ <= 0
+_C387: - Allocation_Job12__Bull_ + IsSuccessor_Bull__Job12__Job13_ <= 0
+_C388: - Allocation_Job11__Bull_ + IsSuccessor_Bull__Job11__Job13_ <= 0
+_C389: - Allocation_Job1__Bull_ + IsSuccessor_Bull__Job1__Job13_ <= 0
+_C39: - 100000 IsSuccessor_SmallDragline__Job8__Job17_ + Start_Job17_
+ - Start_Job8_ >= -99967.0909091
+_C390: - Allocation_Job10__BigDragline_
+ + IsSuccessor_BigDragline__Job10__Job14_ <= 0
+_C391: - Allocation_Job10__BigDragline_
+ + IsSuccessor_BigDragline__Job10__Job15_ <= 0
+_C392: - Allocation_Job10__BigDragline_
+ + IsSuccessor_BigDragline__Job10__Job16_ <= 0
+_C393: - Allocation_Job10__BigDragline_
+ + IsSuccessor_BigDragline__Job10__Job17_ <= 0
+_C394: - Allocation_Job10__BigDragline_
+ + IsSuccessor_BigDragline__Job10__Job18_ <= 0
+_C395: - Allocation_Job10__BigDragline_
+ + IsSuccessor_BigDragline__Job10__Job19_ <= 0
+_C396: - Allocation_Job1__Bull_ + IsSuccessor_Bull__Job1__Job2_ <= 0
+_C397: - Allocation_Job2__Bull_ + IsSuccessor_Bull__Job2__Job3_ <= 0
+_C398: - Allocation_Job1__Bull_ + IsSuccessor_Bull__Job1__Job3_ <= 0
+_C399: - Allocation_Job3__Bull_ + IsSuccessor_Bull__Job3__Job7_ <= 0
+_C4: Allocation_Job4__BigDragline_ + Allocation_Job4__SmallDragline_ <= 1
+_C40: - 100000 IsSuccessor_BigDragline__Job8__Job17_ + Start_Job17_
+ - Start_Job8_ >= -99975.7142857
+_C400: - Allocation_Job2__Bull_ + IsSuccessor_Bull__Job2__Job7_ <= 0
+_C401: - Allocation_Job1__Bull_ + IsSuccessor_Bull__Job1__Job7_ <= 0
+_C402: - 100 Allocation_Job1__Bull_ + Start_Job1_ <= 0
+_C403: - 100 Allocation_Job2__Bull_ + Start_Job2_ <= 0
+_C404: - 100 Allocation_Job3__Bull_ - 100 Allocation_Job3__SmallDragline_
+ + Start_Job3_ <= 0
+_C405: - 100 Allocation_Job4__BigDragline_
+ - 100 Allocation_Job4__SmallDragline_ + Start_Job4_ <= 0
+_C406: - 100 Allocation_Job5__BigDragline_
+ - 100 Allocation_Job5__SmallDragline_ + Start_Job5_ <= 0
+_C407: - 100 Allocation_Job6__BigDragline_ + Start_Job6_ <= 0
+_C408: - 100 Allocation_Job7__Bull_ - 100 Allocation_Job7__SmallDragline_
+ + Start_Job7_ <= 0
+_C409: - 100 Allocation_Job8__BigDragline_
+ - 100 Allocation_Job8__SmallDragline_ + Start_Job8_ <= 0
+_C41: - 100000 IsSuccessor_SmallDragline__Job8__Job18_ + Start_Job18_
+ - Start_Job8_ >= -99967.0909091
+_C410: - 100 Allocation_Job9__BigDragline_
+ - 100 Allocation_Job9__SmallDragline_ + Start_Job9_ <= 0
+_C411: - 100 Allocation_Job10__BigDragline_ + Start_Job10_ <= 0
+_C412: - 100 Allocation_Job11__Bull_ + Start_Job11_ <= 0
+_C413: - 100 Allocation_Job12__Bull_ + Start_Job12_ <= 0
+_C414: - 100 Allocation_Job13__Bull_ - 100 Allocation_Job13__SmallDragline_
+ + Start_Job13_ <= 0
+_C415: - 100 Allocation_Job14__BigDragline_
+ - 100 Allocation_Job14__SmallDragline_ + Start_Job14_ <= 0
+_C416: - 100 Allocation_Job15__BigDragline_
+ - 100 Allocation_Job15__SmallDragline_ + Start_Job15_ <= 0
+_C417: - 100 Allocation_Job16__BigDragline_ + Start_Job16_ <= 0
+_C418: - 100 Allocation_Job17__BigDragline_
+ - 100 Allocation_Job17__SmallDragline_ + Start_Job17_ <= 0
+_C419: - 100 Allocation_Job18__BigDragline_
+ - 100 Allocation_Job18__SmallDragline_ + Start_Job18_ <= 0
+_C42: - 100000 IsSuccessor_BigDragline__Job8__Job18_ + Start_Job18_
+ - Start_Job8_ >= -99971.7142857
+_C420: - 100 Allocation_Job19__BigDragline_ + Start_Job19_ <= 0
+_C421: Allocation_Job1__Bull_ - Start_Job1_ <= 0
+_C422: Allocation_Job2__Bull_ - Start_Job2_ <= 0
+_C423: Allocation_Job3__Bull_ + Allocation_Job3__SmallDragline_ - Start_Job3_
+ <= 0
+_C424: Allocation_Job4__BigDragline_ + Allocation_Job4__SmallDragline_
+ - Start_Job4_ <= 0
+_C425: Allocation_Job5__BigDragline_ + Allocation_Job5__SmallDragline_
+ - Start_Job5_ <= 0
+_C426: Allocation_Job6__BigDragline_ - Start_Job6_ <= 0
+_C427: Allocation_Job7__Bull_ + Allocation_Job7__SmallDragline_ - Start_Job7_
+ <= 0
+_C428: Allocation_Job8__BigDragline_ + Allocation_Job8__SmallDragline_
+ - Start_Job8_ <= 0
+_C429: Allocation_Job9__BigDragline_ + Allocation_Job9__SmallDragline_
+ - Start_Job9_ <= 0
+_C43: - 100000 IsSuccessor_BigDragline__Job8__Job19_ + Start_Job19_
+ - Start_Job8_ >= -99973.7142857
+_C430: Allocation_Job10__BigDragline_ - Start_Job10_ <= 0
+_C431: Allocation_Job11__Bull_ - Start_Job11_ <= 0
+_C432: Allocation_Job12__Bull_ - Start_Job12_ <= 0
+_C433: Allocation_Job13__Bull_ + Allocation_Job13__SmallDragline_
+ - Start_Job13_ <= 0
+_C434: Allocation_Job14__BigDragline_ + Allocation_Job14__SmallDragline_
+ - Start_Job14_ <= 0
+_C435: Allocation_Job15__BigDragline_ + Allocation_Job15__SmallDragline_
+ - Start_Job15_ <= 0
+_C436: Allocation_Job16__BigDragline_ - Start_Job16_ <= 0
+_C437: Allocation_Job17__BigDragline_ + Allocation_Job17__SmallDragline_
+ - Start_Job17_ <= 0
+_C438: Allocation_Job18__BigDragline_ + Allocation_Job18__SmallDragline_
+ - Start_Job18_ <= 0
+_C439: Allocation_Job19__BigDragline_ - Start_Job19_ <= 0
+_C44: - 100000 IsSuccessor_SmallDragline__Job8__Job9_ - Start_Job8_
+ + Start_Job9_ >= -99961.0909091
+_C45: - 100000 IsSuccessor_BigDragline__Job8__Job9_ - Start_Job8_
+ + Start_Job9_ >= -99969.7142857
+_C46: - 100000 IsSuccessor_Bull__Job7__Job11_ + Start_Job11_ - Start_Job7_
+ >= -99963.2
+_C47: - 100000 IsSuccessor_Bull__Job3__Job11_ + Start_Job11_ - Start_Job3_
+ >= -99946
+_C48: - 100000 IsSuccessor_Bull__Job2__Job11_ + Start_Job11_ - Start_Job2_
+ >= -99967.7333333
+_C49: - 100000 IsSuccessor_SmallDragline__Job7__Job13_ + Start_Job13_
+ - Start_Job7_ >= -99969
+_C5: Allocation_Job5__BigDragline_ + Allocation_Job5__SmallDragline_ <= 1
+_C50: - 100000 IsSuccessor_SmallDragline__Job7__Job14_ + Start_Job14_
+ - Start_Job7_ >= -99967
+_C51: - 100000 IsSuccessor_SmallDragline__Job7__Job15_ + Start_Job15_
+ - Start_Job7_ >= -99969
+_C52: - 100000 IsSuccessor_SmallDragline__Job7__Job17_ + Start_Job17_
+ - Start_Job7_ >= -99967
+_C53: - 100000 IsSuccessor_SmallDragline__Job7__Job18_ + Start_Job18_
+ - Start_Job7_ >= -99971
+_C54: - 100000 IsSuccessor_SmallDragline__Job7__Job8_ - Start_Job7_
+ + Start_Job8_ >= -99963
+_C55: - 100000 IsSuccessor_SmallDragline__Job7__Job9_ - Start_Job7_
+ + Start_Job9_ >= -99961
+_C56: - 100000 IsSuccessor_BigDragline__Job6__Job10_ + Start_Job10_
+ - Start_Job6_ >= -99938
+_C57: - 100000 IsSuccessor_BigDragline__Job6__Job14_ + Start_Job14_
+ - Start_Job6_ >= -99942
+_C58: - 100000 IsSuccessor_BigDragline__Job6__Job15_ + Start_Job15_
+ - Start_Job6_ >= -99944
+_C59: - 100000 IsSuccessor_BigDragline__Job6__Job16_ + Start_Job16_
+ - Start_Job6_ >= -99944
+_C6: Allocation_Job6__BigDragline_ <= 1
+_C60: - 100000 IsSuccessor_BigDragline__Job6__Job17_ + Start_Job17_
+ - Start_Job6_ >= -99944
+_C61: - 100000 IsSuccessor_BigDragline__Job6__Job18_ + Start_Job18_
+ - Start_Job6_ >= -99944
+_C62: - 100000 IsSuccessor_BigDragline__Job6__Job19_ + Start_Job19_
+ - Start_Job6_ >= -99946
+_C63: - 100000 IsSuccessor_BigDragline__Job6__Job8_ - Start_Job6_
+ + Start_Job8_ >= -99938
+_C64: - 100000 IsSuccessor_BigDragline__Job6__Job9_ - Start_Job6_
+ + Start_Job9_ >= -99940
+_C65: - 100000 IsSuccessor_BigDragline__Job5__Job10_ + Start_Job10_
+ - Start_Job5_ >= -99970
+_C66: - 100000 IsSuccessor_SmallDragline__Job5__Job13_ + Start_Job13_
+ - Start_Job5_ >= -99971.2
+_C67: - 100000 IsSuccessor_SmallDragline__Job5__Job14_ + Start_Job14_
+ - Start_Job5_ >= -99969.2
+_C68: - 100000 IsSuccessor_BigDragline__Job5__Job14_ + Start_Job14_
+ - Start_Job5_ >= -99974
+_C69: - 100000 IsSuccessor_SmallDragline__Job5__Job15_ + Start_Job15_
+ - Start_Job5_ >= -99969.2
+_C7: Allocation_Job7__Bull_ + Allocation_Job7__SmallDragline_ <= 1
+_C70: - 100000 IsSuccessor_BigDragline__Job5__Job15_ + Start_Job15_
+ - Start_Job5_ >= -99976
+_C71: - 100000 IsSuccessor_BigDragline__Job5__Job16_ + Start_Job16_
+ - Start_Job5_ >= -99972
+_C72: - 100000 IsSuccessor_SmallDragline__Job5__Job17_ + Start_Job17_
+ - Start_Job5_ >= -99969.2
+_C73: - 100000 IsSuccessor_BigDragline__Job5__Job17_ + Start_Job17_
+ - Start_Job5_ >= -99972
+_C74: - 100000 IsSuccessor_SmallDragline__Job5__Job18_ + Start_Job18_
+ - Start_Job5_ >= -99969.2
+_C75: - 100000 IsSuccessor_BigDragline__Job5__Job18_ + Start_Job18_
+ - Start_Job5_ >= -99974
+_C76: - 100000 IsSuccessor_BigDragline__Job5__Job19_ + Start_Job19_
+ - Start_Job5_ >= -99974
+_C77: - 100000 IsSuccessor_BigDragline__Job5__Job6_ - Start_Job5_
+ + Start_Job6_ >= -99966
+_C78: - 100000 IsSuccessor_SmallDragline__Job5__Job7_ - Start_Job5_
+ + Start_Job7_ >= -99963.2
+_C79: - 100000 IsSuccessor_SmallDragline__Job5__Job8_ - Start_Job5_
+ + Start_Job8_ >= -99961.2
+_C8: Allocation_Job8__BigDragline_ + Allocation_Job8__SmallDragline_ <= 1
+_C80: - 100000 IsSuccessor_BigDragline__Job5__Job8_ - Start_Job5_
+ + Start_Job8_ >= -99966
+_C81: - 100000 IsSuccessor_SmallDragline__Job5__Job9_ - Start_Job5_
+ + Start_Job9_ >= -99961.2
+_C82: - 100000 IsSuccessor_BigDragline__Job5__Job9_ - Start_Job5_
+ + Start_Job9_ >= -99970
+_C83: - 100000 IsSuccessor_BigDragline__Job4__Job10_ + Start_Job10_
+ - Start_Job4_ >= -99953.1428571
+_C84: - 100000 IsSuccessor_SmallDragline__Job4__Job13_ + Start_Job13_
+ - Start_Job4_ >= -99951.0909091
+_C85: - 100000 IsSuccessor_SmallDragline__Job4__Job14_ + Start_Job14_
+ - Start_Job4_ >= -99951.0909091
+_C86: - 100000 IsSuccessor_BigDragline__Job4__Job14_ + Start_Job14_
+ - Start_Job4_ >= -99961.1428571
+_C87: - 100000 IsSuccessor_SmallDragline__Job4__Job15_ + Start_Job15_
+ - Start_Job4_ >= -99949.0909091
+_C88: - 100000 IsSuccessor_BigDragline__Job4__Job15_ + Start_Job15_
+ - Start_Job4_ >= -99963.1428571
+_C89: - 100000 IsSuccessor_BigDragline__Job4__Job16_ + Start_Job16_
+ - Start_Job4_ >= -99961.1428571
+_C9: Allocation_Job9__BigDragline_ + Allocation_Job9__SmallDragline_ <= 1
+_C90: - 100000 IsSuccessor_SmallDragline__Job4__Job17_ + Start_Job17_
+ - Start_Job4_ >= -99949.0909091
+_C91: - 100000 IsSuccessor_BigDragline__Job4__Job17_ + Start_Job17_
+ - Start_Job4_ >= -99959.1428571
+_C92: - 100000 IsSuccessor_SmallDragline__Job4__Job18_ + Start_Job18_
+ - Start_Job4_ >= -99953.0909091
+_C93: - 100000 IsSuccessor_BigDragline__Job4__Job18_ + Start_Job18_
+ - Start_Job4_ >= -99961.1428571
+_C94: - 100000 IsSuccessor_BigDragline__Job4__Job19_ + Start_Job19_
+ - Start_Job4_ >= -99961.1428571
+_C95: - 100000 IsSuccessor_SmallDragline__Job4__Job5_ - Start_Job4_
+ + Start_Job5_ >= -99945.0909091
+_C96: - 100000 IsSuccessor_BigDragline__Job4__Job5_ - Start_Job4_
+ + Start_Job5_ >= -99957.1428571
+_C97: - 100000 IsSuccessor_BigDragline__Job4__Job6_ - Start_Job4_
+ + Start_Job6_ >= -99957.1428571
+_C98: - 100000 IsSuccessor_SmallDragline__Job4__Job7_ - Start_Job4_
+ + Start_Job7_ >= -99947.0909091
+_C99: - 100000 IsSuccessor_SmallDragline__Job4__Job8_ - Start_Job4_
+ + Start_Job8_ >= -99943.0909091
+Bounds
+ Start_Job10_ <= 100
+ Start_Job11_ <= 100
+ Start_Job12_ <= 100
+ Start_Job13_ <= 100
+ Start_Job14_ <= 100
+ Start_Job15_ <= 100
+ Start_Job16_ <= 100
+ Start_Job17_ <= 100
+ Start_Job18_ <= 100
+ Start_Job19_ <= 100
+ Start_Job1_ <= 100
+ Start_Job2_ <= 100
+ Start_Job3_ <= 100
+ Start_Job4_ <= 100
+ Start_Job5_ <= 100
+ Start_Job6_ <= 100
+ Start_Job7_ <= 100
+ Start_Job8_ <= 100
+ Start_Job9_ <= 100
+ __dummy = 0
+Binaries
+Allocation_Job10__BigDragline_
+Allocation_Job11__Bull_
+Allocation_Job12__Bull_
+Allocation_Job13__Bull_
+Allocation_Job13__SmallDragline_
+Allocation_Job14__BigDragline_
+Allocation_Job14__SmallDragline_
+Allocation_Job15__BigDragline_
+Allocation_Job15__SmallDragline_
+Allocation_Job16__BigDragline_
+Allocation_Job17__BigDragline_
+Allocation_Job17__SmallDragline_
+Allocation_Job18__BigDragline_
+Allocation_Job18__SmallDragline_
+Allocation_Job19__BigDragline_
+Allocation_Job1__Bull_
+Allocation_Job2__Bull_
+Allocation_Job3__Bull_
+Allocation_Job3__SmallDragline_
+Allocation_Job4__BigDragline_
+Allocation_Job4__SmallDragline_
+Allocation_Job5__BigDragline_
+Allocation_Job5__SmallDragline_
+Allocation_Job6__BigDragline_
+Allocation_Job7__Bull_
+Allocation_Job7__SmallDragline_
+Allocation_Job8__BigDragline_
+Allocation_Job8__SmallDragline_
+Allocation_Job9__BigDragline_
+Allocation_Job9__SmallDragline_
+IsOver_Job10_
+IsOver_Job11_
+IsOver_Job12_
+IsOver_Job13_
+IsOver_Job14_
+IsOver_Job15_
+IsOver_Job16_
+IsOver_Job17_
+IsOver_Job18_
+IsOver_Job19_
+IsOver_Job1_
+IsOver_Job2_
+IsOver_Job3_
+IsOver_Job4_
+IsOver_Job5_
+IsOver_Job6_
+IsOver_Job7_
+IsOver_Job8_
+IsOver_Job9_
+IsSuccessor_BigDragline__Job10__Job14_
+IsSuccessor_BigDragline__Job10__Job15_
+IsSuccessor_BigDragline__Job10__Job16_
+IsSuccessor_BigDragline__Job10__Job17_
+IsSuccessor_BigDragline__Job10__Job18_
+IsSuccessor_BigDragline__Job10__Job19_
+IsSuccessor_BigDragline__Job14__Job15_
+IsSuccessor_BigDragline__Job14__Job16_
+IsSuccessor_BigDragline__Job14__Job17_
+IsSuccessor_BigDragline__Job14__Job18_
+IsSuccessor_BigDragline__Job14__Job19_
+IsSuccessor_BigDragline__Job15__Job16_
+IsSuccessor_BigDragline__Job15__Job17_
+IsSuccessor_BigDragline__Job15__Job18_
+IsSuccessor_BigDragline__Job15__Job19_
+IsSuccessor_BigDragline__Job16__Job17_
+IsSuccessor_BigDragline__Job16__Job18_
+IsSuccessor_BigDragline__Job16__Job19_
+IsSuccessor_BigDragline__Job17__Job18_
+IsSuccessor_BigDragline__Job17__Job19_
+IsSuccessor_BigDragline__Job18__Job19_
+IsSuccessor_BigDragline__Job4__Job10_
+IsSuccessor_BigDragline__Job4__Job14_
+IsSuccessor_BigDragline__Job4__Job15_
+IsSuccessor_BigDragline__Job4__Job16_
+IsSuccessor_BigDragline__Job4__Job17_
+IsSuccessor_BigDragline__Job4__Job18_
+IsSuccessor_BigDragline__Job4__Job19_
+IsSuccessor_BigDragline__Job4__Job5_
+IsSuccessor_BigDragline__Job4__Job6_
+IsSuccessor_BigDragline__Job4__Job8_
+IsSuccessor_BigDragline__Job4__Job9_
+IsSuccessor_BigDragline__Job5__Job10_
+IsSuccessor_BigDragline__Job5__Job14_
+IsSuccessor_BigDragline__Job5__Job15_
+IsSuccessor_BigDragline__Job5__Job16_
+IsSuccessor_BigDragline__Job5__Job17_
+IsSuccessor_BigDragline__Job5__Job18_
+IsSuccessor_BigDragline__Job5__Job19_
+IsSuccessor_BigDragline__Job5__Job6_
+IsSuccessor_BigDragline__Job5__Job8_
+IsSuccessor_BigDragline__Job5__Job9_
+IsSuccessor_BigDragline__Job6__Job10_
+IsSuccessor_BigDragline__Job6__Job14_
+IsSuccessor_BigDragline__Job6__Job15_
+IsSuccessor_BigDragline__Job6__Job16_
+IsSuccessor_BigDragline__Job6__Job17_
+IsSuccessor_BigDragline__Job6__Job18_
+IsSuccessor_BigDragline__Job6__Job19_
+IsSuccessor_BigDragline__Job6__Job8_
+IsSuccessor_BigDragline__Job6__Job9_
+IsSuccessor_BigDragline__Job8__Job10_
+IsSuccessor_BigDragline__Job8__Job14_
+IsSuccessor_BigDragline__Job8__Job15_
+IsSuccessor_BigDragline__Job8__Job16_
+IsSuccessor_BigDragline__Job8__Job17_
+IsSuccessor_BigDragline__Job8__Job18_
+IsSuccessor_BigDragline__Job8__Job19_
+IsSuccessor_BigDragline__Job8__Job9_
+IsSuccessor_BigDragline__Job9__Job10_
+IsSuccessor_BigDragline__Job9__Job14_
+IsSuccessor_BigDragline__Job9__Job15_
+IsSuccessor_BigDragline__Job9__Job16_
+IsSuccessor_BigDragline__Job9__Job17_
+IsSuccessor_BigDragline__Job9__Job18_
+IsSuccessor_BigDragline__Job9__Job19_
+IsSuccessor_Bull__Job11__Job12_
+IsSuccessor_Bull__Job11__Job13_
+IsSuccessor_Bull__Job12__Job13_
+IsSuccessor_Bull__Job1__Job11_
+IsSuccessor_Bull__Job1__Job12_
+IsSuccessor_Bull__Job1__Job13_
+IsSuccessor_Bull__Job1__Job2_
+IsSuccessor_Bull__Job1__Job3_
+IsSuccessor_Bull__Job1__Job7_
+IsSuccessor_Bull__Job2__Job11_
+IsSuccessor_Bull__Job2__Job12_
+IsSuccessor_Bull__Job2__Job13_
+IsSuccessor_Bull__Job2__Job3_
+IsSuccessor_Bull__Job2__Job7_
+IsSuccessor_Bull__Job3__Job11_
+IsSuccessor_Bull__Job3__Job12_
+IsSuccessor_Bull__Job3__Job13_
+IsSuccessor_Bull__Job3__Job7_
+IsSuccessor_Bull__Job7__Job11_
+IsSuccessor_Bull__Job7__Job12_
+IsSuccessor_Bull__Job7__Job13_
+IsSuccessor_SmallDragline__Job13__Job14_
+IsSuccessor_SmallDragline__Job13__Job15_
+IsSuccessor_SmallDragline__Job13__Job17_
+IsSuccessor_SmallDragline__Job13__Job18_
+IsSuccessor_SmallDragline__Job14__Job15_
+IsSuccessor_SmallDragline__Job14__Job17_
+IsSuccessor_SmallDragline__Job14__Job18_
+IsSuccessor_SmallDragline__Job15__Job17_
+IsSuccessor_SmallDragline__Job15__Job18_
+IsSuccessor_SmallDragline__Job17__Job18_
+IsSuccessor_SmallDragline__Job3__Job13_
+IsSuccessor_SmallDragline__Job3__Job14_
+IsSuccessor_SmallDragline__Job3__Job15_
+IsSuccessor_SmallDragline__Job3__Job17_
+IsSuccessor_SmallDragline__Job3__Job18_
+IsSuccessor_SmallDragline__Job3__Job4_
+IsSuccessor_SmallDragline__Job3__Job5_
+IsSuccessor_SmallDragline__Job3__Job7_
+IsSuccessor_SmallDragline__Job3__Job8_
+IsSuccessor_SmallDragline__Job3__Job9_
+IsSuccessor_SmallDragline__Job4__Job13_
+IsSuccessor_SmallDragline__Job4__Job14_
+IsSuccessor_SmallDragline__Job4__Job15_
+IsSuccessor_SmallDragline__Job4__Job17_
+IsSuccessor_SmallDragline__Job4__Job18_
+IsSuccessor_SmallDragline__Job4__Job5_
+IsSuccessor_SmallDragline__Job4__Job7_
+IsSuccessor_SmallDragline__Job4__Job8_
+IsSuccessor_SmallDragline__Job4__Job9_
+IsSuccessor_SmallDragline__Job5__Job13_
+IsSuccessor_SmallDragline__Job5__Job14_
+IsSuccessor_SmallDragline__Job5__Job15_
+IsSuccessor_SmallDragline__Job5__Job17_
+IsSuccessor_SmallDragline__Job5__Job18_
+IsSuccessor_SmallDragline__Job5__Job7_
+IsSuccessor_SmallDragline__Job5__Job8_
+IsSuccessor_SmallDragline__Job5__Job9_
+IsSuccessor_SmallDragline__Job7__Job13_
+IsSuccessor_SmallDragline__Job7__Job14_
+IsSuccessor_SmallDragline__Job7__Job15_
+IsSuccessor_SmallDragline__Job7__Job17_
+IsSuccessor_SmallDragline__Job7__Job18_
+IsSuccessor_SmallDragline__Job7__Job8_
+IsSuccessor_SmallDragline__Job7__Job9_
+IsSuccessor_SmallDragline__Job8__Job13_
+IsSuccessor_SmallDragline__Job8__Job14_
+IsSuccessor_SmallDragline__Job8__Job15_
+IsSuccessor_SmallDragline__Job8__Job17_
+IsSuccessor_SmallDragline__Job8__Job18_
+IsSuccessor_SmallDragline__Job8__Job9_
+IsSuccessor_SmallDragline__Job9__Job13_
+IsSuccessor_SmallDragline__Job9__Job14_
+IsSuccessor_SmallDragline__Job9__Job15_
+IsSuccessor_SmallDragline__Job9__Job17_
+IsSuccessor_SmallDragline__Job9__Job18_
+isFirst_BigDragline__Job10_
+isFirst_BigDragline__Job14_
+isFirst_BigDragline__Job15_
+isFirst_BigDragline__Job16_
+isFirst_BigDragline__Job17_
+isFirst_BigDragline__Job18_
+isFirst_BigDragline__Job19_
+isFirst_BigDragline__Job4_
+isFirst_BigDragline__Job5_
+isFirst_BigDragline__Job6_
+isFirst_BigDragline__Job8_
+isFirst_BigDragline__Job9_
+isFirst_Bull__Job11_
+isFirst_Bull__Job12_
+isFirst_Bull__Job13_
+isFirst_Bull__Job1_
+isFirst_Bull__Job2_
+isFirst_Bull__Job3_
+isFirst_Bull__Job7_
+isFirst_SmallDragline__Job13_
+isFirst_SmallDragline__Job14_
+isFirst_SmallDragline__Job15_
+isFirst_SmallDragline__Job17_
+isFirst_SmallDragline__Job18_
+isFirst_SmallDragline__Job3_
+isFirst_SmallDragline__Job4_
+isFirst_SmallDragline__Job5_
+isFirst_SmallDragline__Job7_
+isFirst_SmallDragline__Job8_
+isFirst_SmallDragline__Job9_
+End

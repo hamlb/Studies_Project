@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jun 15 12:07:14 2022
+
+@author: mizo
+"""
+
+while True:
+    try:
+        N = int(input('N: '))
+        if N < 0 or not isinstance(N, int) :
+            raise ValueError #this will send it to the print message and back to the input option
+        break
+    except ValueError:
+        print("res1")
+
+while True:
+    try:
+        P = int(input('P: '))
+        if P > ((2**31)-1) or not isinstance(P, int) :
+            raise ValueError #this will send it to the print message and back to the input option
+        break
+    except ValueError:
+        print("res2")
+
+M=0
+
+while P**M<=N :
+    M=M+1
+
+print(M-1)

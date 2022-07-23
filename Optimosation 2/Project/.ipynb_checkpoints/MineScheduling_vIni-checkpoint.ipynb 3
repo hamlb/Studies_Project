@@ -1,0 +1,545 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "UumCOKtk0FKJ"
+      },
+      "source": [
+        "### Read the data from the input Excel file"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "id": "f7L2yxKM0FKP"
+      },
+      "outputs": [],
+      "source": [
+        "import pandas as pd\n",
+        "inputFileName = \"MineScheduling_smallDataSet.xlsx\"\n",
+        "paramDF = pd.read_excel(inputFileName, \"Param\", skiprows=0)\n",
+        "jobDF = pd.read_excel(inputFileName, \"Job\", skiprows=0)\n",
+        "jobMachineDF = pd.read_excel(inputFileName, \"JobMachine\", skiprows=0)\n",
+        "switchingDF = pd.read_excel(inputFileName, \"Switching\", skiprows=0)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "PYbT-A2H0FKR"
+      },
+      "source": [
+        "### Set the data into dict + compute maxDuration"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "tags": [],
+        "id": "k7b6fkN60FKS"
+      },
+      "outputs": [],
+      "source": [
+        "horizonDuration = paramDF['Duration (day)'][0]\n",
+        "\n",
+        "duration = dict()  #duration[vJob][vMachine]\n",
+        "maxDuration = 0.0\n",
+        "for iJob,vJob in enumerate(jobMachineDF['Job']):\n",
+        "    vMachine = jobMachineDF['Machine'][iJob]\n",
+        "    if not vJob in duration : duration[vJob] = dict() \n",
+        "    duration[vJob][vMachine] = jobMachineDF['Duration'][iJob]\n",
+        "    if duration[vJob][vMachine] > maxDuration : maxDuration = duration[vJob][vMachine]\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "YVkYP6sQ0FKT"
+      },
+      "source": [
+        "### Create your linear program"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "id": "yRoH-Uej0FKT",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "16a30793-91f6-4cd9-dba3-b0063f475424"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting pulp\n",
+            "  Downloading PuLP-2.6.0-py3-none-any.whl (14.2 MB)\n",
+            "\u001b[K     |████████████████████████████████| 14.2 MB 5.2 MB/s \n",
+            "\u001b[?25hInstalling collected packages: pulp\n",
+            "Successfully installed pulp-2.6.0\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install pulp"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "id": "y53qLNTh0FKU"
+      },
+      "outputs": [],
+      "source": [
+        "from pulp import *\n",
+        "prob = LpProblem(\"MineSchedulingProblem\", LpMaximize)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "YhWeREMI0FKV"
+      },
+      "source": [
+        "### Add variables"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 5,
+      "metadata": {
+        "id": "pPdwUNKk0FKW",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "6fe0aea2-aec4-404a-8395-021e33bdc328"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'Job1': {'Bull': isFirst_Bull__Job1_},\n",
+              " 'Job10': {'BigDragline': isFirst_BigDragline__Job10_},\n",
+              " 'Job11': {'Bull': isFirst_Bull__Job11_},\n",
+              " 'Job12': {'Bull': isFirst_Bull__Job12_},\n",
+              " 'Job13': {'Bull': isFirst_Bull__Job13_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job13_},\n",
+              " 'Job14': {'BigDragline': isFirst_BigDragline__Job14_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job14_},\n",
+              " 'Job15': {'BigDragline': isFirst_BigDragline__Job15_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job15_},\n",
+              " 'Job16': {'BigDragline': isFirst_BigDragline__Job16_},\n",
+              " 'Job17': {'BigDragline': isFirst_BigDragline__Job17_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job17_},\n",
+              " 'Job18': {'BigDragline': isFirst_BigDragline__Job18_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job18_},\n",
+              " 'Job19': {'BigDragline': isFirst_BigDragline__Job19_},\n",
+              " 'Job2': {'Bull': isFirst_Bull__Job2_},\n",
+              " 'Job3': {'Bull': isFirst_Bull__Job3_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job3_},\n",
+              " 'Job4': {'BigDragline': isFirst_BigDragline__Job4_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job4_},\n",
+              " 'Job5': {'BigDragline': isFirst_BigDragline__Job5_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job5_},\n",
+              " 'Job6': {'BigDragline': isFirst_BigDragline__Job6_},\n",
+              " 'Job7': {'Bull': isFirst_Bull__Job7_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job7_},\n",
+              " 'Job8': {'BigDragline': isFirst_BigDragline__Job8_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job8_},\n",
+              " 'Job9': {'BigDragline': isFirst_BigDragline__Job9_,\n",
+              "  'SmallDragline': isFirst_SmallDragline__Job9_}}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ],
+      "source": [
+        "#allocationVar[vJob][vMachine] & isFirst[vJob][vMachine]\n",
+        "allocationVar = dict()\n",
+        "isFirstVar = dict()  #Jobs that each machine can do\n",
+        "for iJob,vJob in enumerate(jobMachineDF['Job']):\n",
+        "    vMachine = jobMachineDF['Machine'][iJob]\n",
+        "    if not vJob in allocationVar : allocationVar[vJob] = dict() \n",
+        "    if not vJob in isFirstVar : isFirstVar[vJob] = dict() \n",
+        "    allocationVar[vJob][vMachine] = LpVariable(\"Allocation[%s][%s]\"%(vJob,vMachine), cat='Binary')\n",
+        "    isFirstVar[vJob][vMachine] = LpVariable(\"isFirst[%s][%s]\"%(vMachine, vJob), cat='Binary') \n",
+        "\n",
+        "#startVar[vJob] and isOver[vJob]\n",
+        "startVar = dict()\n",
+        "isOverVar = dict() # \n",
+        "for vJob in jobDF['Id'] :\n",
+        "    startVar[vJob] = LpVariable(\"Start[%s]\"%(vJob), lowBound=0, upBound=horizonDuration, cat='Continuous')\n",
+        "    isOverVar[vJob] = LpVariable(\"IsOver[%s]\"%(vJob), lowBound=0, cat='Binary')\n",
+        "\n",
+        "    \n",
+        "#isSuccessor[vMachine][vJob1-vJob2] = 1 if vJob2 is the direct successor of vJob1\n",
+        "isSuccessorVar = dict()  # successor job after the previous job is done regarding a machine \n",
+        "for iMachine,vMachine in enumerate(switchingDF['Machine']):\n",
+        "    vJob1 = switchingDF['Job1'][iMachine]\n",
+        "    vJob2 = switchingDF['Job2'][iMachine]\n",
+        "    if not vMachine in isSuccessorVar : isSuccessorVar[vMachine] = dict()\n",
+        "    if not vJob1 in isSuccessorVar[vMachine] : isSuccessorVar[vMachine][vJob1] = dict() \n",
+        "    if not vJob2 in isSuccessorVar[vMachine] : isSuccessorVar[vMachine][vJob2] = dict() \n",
+        "    isSuccessorVar[vMachine][vJob1][vJob2] = LpVariable(\"IsSuccessor[%s][%s][%s]\"%(vMachine, vJob1, vJob2), cat='Binary')\n",
+        "    isSuccessorVar[vMachine][vJob2][vJob1] = LpVariable(\"IsSuccessor[%s][%s][%s]\"%(vMachine, vJob2, vJob1), cat='Binary')  \n",
+        "\n",
+        "isFirstVar"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ZSQAFYpV0FKX"
+      },
+      "source": [
+        "### Add objective"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 6,
+      "metadata": {
+        "id": "X0KlAbVn0FKY"
+      },
+      "outputs": [],
+      "source": [
+        "Production=jobDF.set_index('Id').to_dict()['Production']  # Job & Production\n",
+        "Volume = jobDF.set_index('Id').to_dict()['Volume'] # Job & Production\n",
+        "\n",
+        "obj = LpAffineExpression()\n",
+        "obj += lpSum([isOverVar[j] * Volume[j] for j in jobDF['Id']])\n",
+        "prob += obj\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8JQLn-mR0FKY"
+      },
+      "source": [
+        "### Add constraints"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "r9_J704w0FKZ"
+      },
+      "outputs": [],
+      "source": [
+        "#Max one allocation per job\n",
+        "#Define a dictionary : key = Job, value = Associated machines\n",
+        "for vJob in jobDF['Id']:\n",
+        "    prob += lpSum([allocationVar[vJob][vMachine] for vMachine in allocationVar[vJob].keys()])<=1\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "CPtqms-vTAnY"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "JVez0Q9x0FKZ"
+      },
+      "outputs": [],
+      "source": [
+        "#Max one \"isFirst\" job per\n",
+        "for vMachine in paramDF['Machine']:\n",
+        "        vJobs=jobMachineDF.loc[jobMachineDF['Machine'] == vMachine , 'Job']\n",
+        "        prob += lpSum([isFirstVar[vJob][vMachine] for vJob in vJobs])<=1"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "5DJCB0-A0FKZ"
+      },
+      "outputs": [],
+      "source": [
+        "#Constraint stating the \"start\" variable\n",
+        "#Start[j’] >= Start[j] + duration[j][m] + switchingTime[m][j][j’]  - BigM * (1 - isSuccessor[m][j][j’])\n",
+        "#Start[j'] - Start[j] - BigM * isSuccessor[m][j][j'] >= duration[j][m] + switchingTime[m][j][j’] - BigM\n",
+        "BigM=100000\n",
+        "for iMachine,vMachine in enumerate(switchingDF['Machine']):\n",
+        "    Job1=str(switchingDF['Job1'][iMachine])\n",
+        "    Job2=str(switchingDF['Job2'][iMachine])\n",
+        "    duration = float(jobMachineDF.loc[(jobMachineDF['Machine']==vMachine)&(jobMachineDF['Job']==Job1),'Duration'])\n",
+        "    SwitchingTime = float(switchingDF['SwitchingTime (day)'][iMachine])\n",
+        "    #print(Job1)\n",
+        "    #print(Job2)\n",
+        "    #print(duration)\n",
+        "    #print(SwitchingTime)\n",
+        "    prob+=startVar[Job2]>=startVar[Job1] + duration + SwitchingTime-BigM*(1-isSuccessorVar[vMachine][Job1][Job2])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "8YB56z1E0FKa"
+      },
+      "outputs": [],
+      "source": [
+        "#Constraint stating the \"isOver\" variable\n",
+        "#start[j] + Sum[m in isPossible[j] ] duration[j][m] * allocation[j][m] <= durationHorizon + BigM * (1 - isOver[j])\n",
+        "#start[j] + Sum[m in isPossible[j] ] duration[j][m] * allocation[j][m] + BigM * isOver[j] <= durationHorizon + BigM\n",
+        "\n",
+        "for vJob in jobDF['Id']:\n",
+        "    duration = jobMachineDF[jobMachineDF['Job']==vJob]\n",
+        "    durationdict=dict(zip(duration.Machine, duration.Duration))\n",
+        "    prob+=startVar[vJob]+lpSum([durationdict[vMachine]*allocationVar[vJob][vMachine] for vMachine in durationdict.keys()])<=horizonDuration+BigM*(1-isOverVar[vJob])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Define a dictionary : key = Job, value = Associated machines\n",
+        "MachineJob_dict = dict(jobMachineDF.groupby('Job')['Machine'].apply(list))"
+      ],
+      "metadata": {
+        "id": "JCGLS_GZxkr5"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "2yKKUcyL0FKa"
+      },
+      "outputs": [],
+      "source": [
+        "#Constraint stating that to be allocated, a job shall either be the first, or be the successor of another job\n",
+        "# allocationVar[vJob][vMachine] <= isFirst[vJob][vMachine] + sum[otherJobs oJob] isSuccessor[vMachine][oJob][vJob]\n",
+        "for iJob,vJob in enumerate(jobDF['Id']):\n",
+        "  for vMachine in MachineJob_dict[vJob]:\n",
+        "    otherjobs = switchingDF[switchingDF['Job2'] == vJob ]\n",
+        "    otherjobs = otherjobs[otherjobs['Machine'] == vMachine]['Job1']\n",
+        "    prob += allocationVar[vJob][vMachine] <= isFirstVar[vJob][vMachine] +lpSum(isSuccessorVar[vMachine][oJob][vJob] for oJob in otherjobs)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "em2wrvgn0FKa"
+      },
+      "outputs": [],
+      "source": [
+        "#Constraint stating that if isOver = 1, then at least one allocation = 1\n",
+        "for vJob in jobDF['Id']:\n",
+        "    prob+=  isOverVar[vJob] <= lpSum(allocationVar[vJob][vMachine] for vMachine in MachineJob_dict[vJob] )"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "rSXEwOcq0FKb"
+      },
+      "outputs": [],
+      "source": [
+        "#Max one successor per job\n",
+        "for iJob,vJob in enumerate(jobMachineDF['Job']):\n",
+        "      prob += lpSum ( isSuccessorVar[vMachine][vJob][oJob] for vMachine in MachineJob_dict[vJob] for oJob in isSuccessorVar[vMachine][vJob] )<= 1"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#other constraint"
+      ],
+      "metadata": {
+        "id": "ZMBhphcfx5Ae"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "machine = list(paramDF['Machine'])\n",
+        "machine = paramDF[['Machine']]\n",
+        "machine_names = machine.Machine.unique()\n",
+        "Jobmachine_dict=dict(jobMachineDF.groupby('Machine')['Job'].apply(list))   "
+      ],
+      "metadata": {
+        "id": "Q1Sd4XzMx48r"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Constraint stating that IsSuccessor[m][j1][j2] = 1 --> allocation[j1][m] = 1\n",
+        "for m in machine_names:\n",
+        "    for j in jobDF['Id']:\n",
+        "        if Jobmachine_dict[m] != j:\n",
+        "               otherjobmachine=Jobmachine_dict[m]\n",
+        "        continue\n",
+        "        for oj in otherjobmachine:\n",
+        "                prob += isSuccessorVar[m][j][oj] <= allocationVar[vJob][vMachine]"
+      ],
+      "metadata": {
+        "id": "W7k8YxWNyCwU"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Constraint stating that if start > 0, then then at least one allocation = 1\n",
+        "for vJob in jobDF['Id']:\n",
+        "    prob += startVar[vJob] <= BigM * lpSum(allocationVar[vJob][vMachine] for vMachine in MachineJob_dict[vJob] )"
+      ],
+      "metadata": {
+        "id": "aTwLh9UvyCpF"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#If Sum allocation = 1, then start >= 1.0\n",
+        "\n",
+        "for vJob in jobDF['Id']:\n",
+        "    prob +=  lpSum(allocationVar[vJob][vMachine] for vMachine in MachineJob_dict[vJob]) <= startVar[vJob] "
+      ],
+      "metadata": {
+        "id": "1GtInM4Gx45-"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "## Constraint imposing predecessors : isOver[j] = 1  isOver[vPred] = 1  \n",
+        "jPred_dict=dict(zip(jobDF['Id'], jobDF['PredecessorId'])) \n",
+        "for j in jobDF['Id']:\n",
+        "    if jPred_dict[j] in jobDF['Id']:\n",
+        "        prob +=  isOverVar[j] <= isOverVar[jPred_dict[j]]\n",
+        "    continue"
+      ],
+      "metadata": {
+        "id": "_npyt_mvx43P"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        " # Constraint imposing predecessors :   j shall start only once vPred has finished\n",
+        "for j in jobDF['Id']:\n",
+        "    jPred=jPred_dict[j]\n",
+        "    if jPred not in jobDF['Id']:\n",
+        "        continue\n",
+        "    prob += StartVar[jPred] + lpSum(duration[jPred][m] * allocationVar[jPred][m] for m in MachineJ_dict[jPred])<= StartVar[j]"
+      ],
+      "metadata": {
+        "id": "d1iisqt7x4zA"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        ""
+      ],
+      "metadata": {
+        "id": "Uj5P8R2bx4qz"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "9K5dNm560FKb"
+      },
+      "source": [
+        "### Solve and display results"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "AOeVBBry0FKb"
+      },
+      "outputs": [],
+      "source": [
+        "prob.writeLP(\"MineSchedulingProblem\", writeSOS=1, mip=1)\n",
+        "prob.solve()\n",
+        "print(\"Status:\", LpStatus[prob.status])\n",
+        "print (\"Objective = \", value(prob.objective))\n",
+        "varsDict = {}\n",
+        "for v in prob.variables():\n",
+        "    varsDict[v.name] = v.varValue\n",
+        "    if \"IsOver\" in v.name or \"Start\" in v.name or \"Allocation\" in v.name or \"IsSuccessor\" in v.name:\n",
+        "        if v.varValue != 0.0 : print(v.name, \"=\", v.varValue)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "zv8SUT5G0FKc"
+      },
+      "outputs": [],
+      "source": [
+        ""
+      ]
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8.8"
+    },
+    "colab": {
+      "name": "MineScheduling_vIni.ipynb",
+      "provenance": [],
+      "collapsed_sections": []
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}

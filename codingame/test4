@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jun 15 12:16:48 2022
+
+@author: mizo
+"""
+while True:
+    try:
+        N = int(input('Blocs: '))
+        if N < 0 or N>50000 or not isinstance(N, int) :
+            raise ValueError #this will send it to the print message and back to the input option
+        break
+    except ValueError:
+        print("res1")
+H=0
+while (((H**2)+H)/2)<=N :
+    H=H+1
+
+H=H-1
+R=int(N-((H**2)+H)/2)
+print(H,R)

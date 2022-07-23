@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jun 15 12:28:45 2022
+
+@author: mizo
+"""
+DL=[]
+try:
+    for i in input().split():
+        dice=int(i)
+        if dice<1 or dice >6 :
+            raise ValueError
+        DL.append(dice)
+except ValueError :
+    print("enter correct numbers")
+
+DL.sort()
+S=DL
+if (S[0]+1==S[1] and S[1]+1==S[2] and  S[2]+1==S[3]) or (S[1]+1==S[2] and  S[2]+1==S[3] and  S[3]+1==S[4]) :
+    print(True)
+else:
+    print(False)
